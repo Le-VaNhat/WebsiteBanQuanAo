@@ -1,0 +1,194 @@
+﻿@model ThienThaiShop.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Tài khoản";
+}
+
+<style>
+    .profile-page {
+        min-height: 650px;
+        background: #f5f5f5;
+        padding: 60px 15px;
+    }
+
+    .profile-box {
+        max-width: 700px;
+        margin: auto;
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    }
+
+    .profile-title {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+        .profile-title h2 {
+            margin-bottom: 8px;
+        }
+
+        .profile-title p {
+            color: #777;
+        }
+
+    .profile-row {
+        display: flex;
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+    }
+
+    .profile-label {
+        width: 180px;
+        font-weight: bold;
+    }
+
+    .profile-value {
+        flex: 1;
+        color: #555;
+    }
+
+    .profile-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+        .profile-buttons a {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+    .btn-home {
+        background: #111;
+        color: white;
+    }
+
+    .btn-logout {
+        background: #e63946;
+        color: white;
+    }
+
+        .btn-home:hover,
+        .btn-logout:hover {
+            color: white;
+            opacity: .9;
+        }
+
+    @@media(max-width:600px) {
+
+        .profile-row {
+            display: block;
+        }
+
+        .profile-label {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .profile-buttons {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<div class="profile-page">
+
+    <div class="profile-box">
+
+        <div class="profile-title">
+
+            <h2>Thông tin tài khoản</h2>
+
+            <p>
+                Thông tin cá nhân của bạn tại Thiên Thai Shop
+            </p>
+
+        </div>
+
+        <div class="profile-row">
+
+            <div class="profile-label">
+                Họ và tên
+            </div>
+
+            <div class="profile-value">
+                @Model.FullName
+            </div>
+
+        </div>
+
+        <div class="profile-row">
+
+            <div class="profile-label">
+                Email
+            </div>
+
+            <div class="profile-value">
+                @Model.Email
+            </div>
+
+        </div>
+
+        <div class="profile-row">
+
+            <div class="profile-label">
+                Số điện thoại
+            </div>
+
+            <div class="profile-value">
+                @(string.IsNullOrEmpty(Model.Phone)
+                    ? "Chưa cập nhật"
+                    : Model.Phone)
+            </div>
+
+        </div>
+
+        <div class="profile-row">
+
+            <div class="profile-label">
+                Địa chỉ
+            </div>
+
+            <div class="profile-value">
+                @(string.IsNullOrEmpty(Model.Address)
+                    ? "Chưa cập nhật"
+                    : Model.Address)
+            </div>
+
+        </div>
+
+        <div class="profile-row">
+
+            <div class="profile-label">
+                Loại tài khoản
+            </div>
+
+            <div class="profile-value">
+                @Model.Role
+            </div>
+
+        </div>
+
+        <div class="profile-buttons">
+
+            <a href="@Url.Action("Index", "Home")"
+               class="btn-home">
+                Về trang chủ
+            </a>
+
+            <a href="@Url.Action("Logout", "Account")"
+               class="btn-logout">
+                Đăng xuất
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

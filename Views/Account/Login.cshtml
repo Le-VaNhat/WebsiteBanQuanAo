@@ -1,0 +1,178 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+}
+
+<style>
+    .account-page {
+        min-height: 650px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f5f5f5;
+        padding: 50px 15px;
+    }
+
+    .account-box {
+        width: 430px;
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 5px 25px rgba(0,0,0,.1);
+    }
+
+        .account-box h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+    .account-desc {
+        text-align: center;
+        color: #777;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+    .form-control {
+        width: 100%;
+        height: 45px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 0 12px;
+        font-size: 15px;
+        outline: none;
+    }
+
+        .form-control:focus {
+            border-color: #111;
+        }
+
+    .btn-account {
+        width: 100%;
+        height: 45px;
+        border: none;
+        background: #111;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+        .btn-account:hover {
+            background: #e63946;
+        }
+
+    .account-error {
+        background: #ffe5e5;
+        color: #c62828;
+        padding: 12px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .account-success {
+        background: #e8f5e9;
+        color: #2e7d32;
+        padding: 12px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .account-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .account-link a {
+            color: #e63946;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+            .account-link a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<div class="account-page">
+
+    <div class="account-box">
+
+        <h2>Đăng nhập</h2>
+
+        <p class="account-desc">
+            Chào mừng bạn quay trở lại Thiên Thai Shop
+        </p>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="account-error">
+                @ViewBag.Error
+            </div>
+        }
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="account-success">
+                @TempData["Success"]
+            </div>
+        }
+
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input type="email"
+                       name="email"
+                       class="form-control"
+                       placeholder="Nhập email"
+                       required />
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Mật khẩu</label>
+
+                <input type="password"
+                       name="password"
+                       class="form-control"
+                       placeholder="Nhập mật khẩu"
+                       required />
+
+            </div>
+
+            <button type="submit" class="btn-account">
+                ĐĂNG NHẬP
+            </button>
+        }
+
+        <div class="account-link">
+
+            Chưa có tài khoản?
+
+            <a href="@Url.Action("Register", "Account")">
+                Đăng ký ngay
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

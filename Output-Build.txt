@@ -1,0 +1,5 @@
+﻿Build started at 5:24 PM...
+1>------ Build started: Project: ThienThaiShop, Configuration: Debug Any CPU ------
+1>  ThienThaiShop -> C:\Users\ASUS\source\repos\ThienThaiShop\bin\ThienThaiShop.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Build completed at 5:24 PM and took 00.659 seconds ==========

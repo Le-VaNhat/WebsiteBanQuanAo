@@ -1,0 +1,1044 @@
+﻿@using System.Linq
+@using System.Collections.Generic
+@model ThienThaiShop.Models.Product
+
+@{
+    ViewBag.Title = Model.Name + " - Thiên Thai Shop";
+
+    var sizes = ViewBag.Sizes as IEnumerable<ThienThaiShop.Models.Size>;
+
+    var categoryName = Model.Category != null
+        ? Model.Category.Name.ToLower()
+        : "";
+
+    var sizeS = sizes != null
+        ? sizes.FirstOrDefault(x => x.Name.Trim().ToUpper() == "S")
+        : null;
+
+    var sizeM = sizes != null
+        ? sizes.FirstOrDefault(x => x.Name.Trim().ToUpper() == "M")
+        : null;
+
+    var sizeL = sizes != null
+        ? sizes.FirstOrDefault(x => x.Name.Trim().ToUpper() == "L")
+        : null;
+
+    var sizeXL = sizes != null
+        ? sizes.FirstOrDefault(x => x.Name.Trim().ToUpper() == "XL")
+        : null;
+
+    var size2XL = sizes != null
+        ? sizes.FirstOrDefault(x =>
+            x.Name.Trim().ToUpper() == "2XL" ||
+            x.Name.Trim().ToUpper() == "XXL")
+        : null;
+}
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .product-detail-page {
+        background: #f8f8f8;
+        min-height: 100vh;
+        padding-bottom: 70px;
+    }
+
+    .detail-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 50px 15px;
+    }
+
+    /* ================= BREADCRUMB ================= */
+
+    .breadcrumb {
+        margin-bottom: 30px;
+        color: #777;
+        font-size: 14px;
+    }
+
+        .breadcrumb a {
+            color: #555;
+            text-decoration: none;
+        }
+
+            .breadcrumb a:hover {
+                color: #e63946;
+            }
+
+    /* ================= DETAIL BOX ================= */
+
+    .detail-box {
+        background: white;
+        border-radius: 8px;
+        padding: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        box-shadow: 0 3px 15px rgba(0,0,0,.07);
+    }
+
+    /* ================= IMAGE ================= */
+
+    .product-image-box {
+        width: 100%;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        border-radius: 6px;
+        display: block;
+    }
+
+    /* ================= PRODUCT INFO ================= */
+
+    .product-info {
+        padding: 10px 0;
+    }
+
+    .product-category {
+        color: #888;
+        font-size: 14px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    .product-title {
+        font-size: 34px;
+        margin: 0 0 18px;
+        color: #111;
+        line-height: 1.25;
+    }
+
+    .product-price {
+        color: #e63946;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .product-description {
+        color: #666;
+        line-height: 1.7;
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+
+    /* ================= STOCK ================= */
+
+    .product-stock {
+        padding: 12px 15px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        margin-bottom: 25px;
+        font-size: 14px;
+    }
+
+        .product-stock strong {
+            color: #198754;
+        }
+
+    /* ================= FORM ================= */
+
+    .form-group-tt {
+        margin-bottom: 22px;
+    }
+
+    .form-label-tt {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 12px;
+        color: #222;
+        font-size: 18px;
+    }
+
+    /* ================= SIZE BUTTON ================= */
+
+    .size-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .size-option {
+        position: relative;
+    }
+
+        .size-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+    .size-label {
+        width: 70px;
+        height: 48px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 15px;
+        transition: .2s;
+    }
+
+        .size-label:hover {
+            border-color: #e63946;
+            color: #e63946;
+        }
+
+    .size-option input:checked + .size-label {
+        background: #111;
+        border-color: #111;
+        color: white;
+    }
+
+    .size-option input:disabled + .size-label {
+        background: #eee;
+        color: #aaa;
+        cursor: not-allowed;
+        text-decoration: line-through;
+    }
+
+    /* ================= SIZE GUIDE ================= */
+
+    .size-guide {
+        margin-top: 20px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .size-guide-title {
+        background: #f5f5f5;
+        padding: 13px 15px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .size-guide-note {
+        padding: 12px 15px 0;
+        color: #777;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .size-table-wrapper {
+        overflow-x: auto;
+        padding: 15px;
+    }
+
+    .size-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 500px;
+    }
+
+        .size-table th {
+            background: #111;
+            color: white;
+            padding: 11px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .size-table td {
+            border: 1px solid #eee;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .size-table tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+    /* ================= QUANTITY ================= */
+
+    .quantity-input {
+        width: 120px;
+        padding: 13px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 15px;
+        outline: none;
+    }
+
+        .quantity-input:focus {
+            border-color: #111;
+        }
+
+    /* ================= BUTTON ================= */
+
+    .btn-add-cart {
+        width: 100%;
+        padding: 16px;
+        background: #e63946;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+        .btn-add-cart:hover {
+            background: #c92532;
+        }
+
+    .btn-back {
+        display: block;
+        text-align: center;
+        margin-top: 12px;
+        padding: 14px;
+        border: 1px solid #222;
+        border-radius: 5px;
+        color: #222;
+        text-decoration: none;
+        transition: .2s;
+    }
+
+        .btn-back:hover {
+            background: #111;
+            color: white;
+            text-decoration: none;
+        }
+
+    /* ================= BENEFITS ================= */
+
+    .product-benefits {
+        margin-top: 30px;
+        border-top: 1px solid #eee;
+        padding-top: 25px;
+    }
+
+    .benefit {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 15px;
+        align-items: center;
+    }
+
+    .benefit-icon {
+        font-size: 23px;
+    }
+
+    .benefit-text strong {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+
+    .benefit-text span {
+        color: #777;
+        font-size: 13px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @@media (max-width: 850px) {
+
+        .detail-box {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .product-image {
+            height: 500px;
+        }
+
+        .product-title {
+            font-size: 28px;
+        }
+    }
+
+    @@media (max-width: 500px) {
+
+        .detail-container {
+            padding: 25px 12px;
+        }
+
+        .detail-box {
+            padding: 18px;
+        }
+
+        .product-image {
+            height: 400px;
+        }
+
+        .size-label {
+            width: 58px;
+        }
+    }
+</style>
+
+
+<div class="product-detail-page">
+
+    <div class="detail-container">
+
+
+        <!-- ================= BREADCRUMB ================= -->
+
+        <div class="breadcrumb">
+
+            <a href="@Url.Action("Index", "Home")">
+                Trang chủ
+            </a>
+
+            <span> / </span>
+
+            <a href="@Url.Action("Index", "Product")">
+                Sản phẩm
+            </a>
+
+            <span> / </span>
+
+            <span>
+                @Model.Name
+            </span>
+
+        </div>
+
+
+        <!-- ================= PRODUCT DETAIL ================= -->
+
+        <div class="detail-box">
+
+
+            <!-- ================= IMAGE ================= -->
+
+            <div class="product-image-box">
+
+                <img class="product-image"
+                     src="@(string.IsNullOrWhiteSpace(Model.ImageUrl)
+                         ? "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80"
+                         : Model.ImageUrl)"
+                     alt="@Model.Name" />
+
+            </div>
+
+
+            <!-- ================= PRODUCT INFO ================= -->
+
+            <div class="product-info">
+
+
+                <!-- CATEGORY -->
+
+                @if (Model.Category != null)
+                {
+                    <div class="product-category">
+                        @Model.Category.Name
+                    </div>
+                }
+
+
+                <!-- NAME -->
+
+                <h1 class="product-title">
+                    @Model.Name
+                </h1>
+
+
+                <!-- PRICE -->
+
+                <div class="product-price">
+                    @Model.Price.ToString("N0")₫
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="product-description">
+
+                    @if (!string.IsNullOrWhiteSpace(Model.Description))
+                    {
+                        @Model.Description
+                    }
+                    else
+                    {
+                        <span>
+                            Sản phẩm thời trang chất lượng cao
+                            đến từ Thiên Thai Shop.
+                        </span>
+                    }
+
+                </div>
+
+
+                <!-- STOCK -->
+
+                <div class="product-stock">
+
+                    Tình trạng:
+
+                    @if (Model.Stock > 0)
+                    {
+                        <strong>
+                            Còn hàng
+                        </strong>
+
+                        <span>
+                            (@Model.Stock sản phẩm)
+                        </span>
+                    }
+                    else
+                    {
+                        <strong style="color:#e63946;">
+                            Hết hàng
+                        </strong>
+                    }
+
+                </div>
+
+
+                @if (Model.Stock > 0)
+                {
+
+                    <!-- ================= FORM ADD CART ================= -->
+
+                    <form method="post"
+                          action="@Url.Action("AddToCart", "Cart")">
+
+
+                        <!-- PRODUCT ID -->
+
+                        <input type="hidden"
+                               name="productId"
+                               value="@Model.ProductId" />
+
+
+                        <!-- ================= SIZE ================= -->
+
+                        <div class="form-group-tt">
+
+                            <label class="form-label-tt">
+                                Chọn Size
+                            </label>
+
+
+                            <div class="size-options">
+
+
+                                <!-- SIZE S -->
+
+                                <div class="size-option">
+
+                                    <input type="radio"
+                                           id="sizeS"
+                                           name="sizeId"
+                                           value="@(sizeS != null ? sizeS.SizeId : 0)"
+                                           required
+                                           @(sizeS == null ? "disabled" : "") />
+
+                                    <label for="sizeS"
+                                           class="size-label">
+                                        S
+                                    </label>
+
+                                </div>
+
+
+                                <!-- SIZE M -->
+
+                                <div class="size-option">
+
+                                    <input type="radio"
+                                           id="sizeM"
+                                           name="sizeId"
+                                           value="@(sizeM != null ? sizeM.SizeId : 0)"
+                                           @(sizeM == null ? "disabled" : "") />
+
+                                    <label for="sizeM"
+                                           class="size-label">
+                                        M
+                                    </label>
+
+                                </div>
+
+
+                                <!-- SIZE L -->
+
+                                <div class="size-option">
+
+                                    <input type="radio"
+                                           id="sizeL"
+                                           name="sizeId"
+                                           value="@(sizeL != null ? sizeL.SizeId : 0)"
+                                           @(sizeL == null ? "disabled" : "") />
+
+                                    <label for="sizeL"
+                                           class="size-label">
+                                        L
+                                    </label>
+
+                                </div>
+
+
+                                <!-- SIZE XL -->
+
+                                <div class="size-option">
+
+                                    <input type="radio"
+                                           id="sizeXL"
+                                           name="sizeId"
+                                           value="@(sizeXL != null ? sizeXL.SizeId : 0)"
+                                           @(sizeXL == null ? "disabled" : "") />
+
+                                    <label for="sizeXL"
+                                           class="size-label">
+                                        XL
+                                    </label>
+
+                                </div>
+
+
+                                <!-- SIZE 2XL -->
+
+                                <div class="size-option">
+
+                                    <input type="radio"
+                                           id="size2XL"
+                                           name="sizeId"
+                                           value="@(size2XL != null ? size2XL.SizeId : 0)"
+                                           @(size2XL == null ? "disabled" : "") />
+
+                                    <label for="size2XL"
+                                           class="size-label">
+                                        2XL
+                                    </label>
+
+                                </div>
+
+
+                            </div>
+
+
+                            @if (sizes == null || !sizes.Any())
+                            {
+                                <div style="margin-top:10px;color:#e63946;font-size:13px;">
+
+                                    Hệ thống chưa có dữ liệu Size.
+                                    Bạn cần thêm S, M, L, XL, 2XL vào bảng Size.
+
+                                </div>
+                            }
+
+                        </div>
+
+
+                        <!-- ================= SIZE GUIDE ================= -->
+
+                        <div class="size-guide">
+
+                            <div class="size-guide-title">
+
+                                📏 Bảng gợi ý chọn Size
+
+                            </div>
+
+                            <div class="size-guide-note">
+
+                                Số liệu mang tính tham khảo. Nếu bạn nằm giữa
+                                hai size, nên chọn size lớn hơn để mặc thoải mái.
+
+                            </div>
+
+
+                            <div class="size-table-wrapper">
+
+
+                                @if (categoryName.Contains("quần"))
+                                {
+
+                                    <!-- QUẦN -->
+
+                                    <table class="size-table">
+
+                                        <thead>
+
+                                            <tr>
+                                                <th>Size</th>
+                                                <th>Eo (cm)</th>
+                                                <th>Mông (cm)</th>
+                                                <th>Cân nặng gợi ý</th>
+                                            </tr>
+
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr>
+                                                <td>S</td>
+                                                <td>68 - 72</td>
+                                                <td>88 - 92</td>
+                                                <td>45 - 55 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>M</td>
+                                                <td>72 - 76</td>
+                                                <td>92 - 96</td>
+                                                <td>55 - 65 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>L</td>
+                                                <td>76 - 80</td>
+                                                <td>96 - 100</td>
+                                                <td>65 - 75 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>XL</td>
+                                                <td>80 - 86</td>
+                                                <td>100 - 106</td>
+                                                <td>75 - 85 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>2XL</td>
+                                                <td>86 - 92</td>
+                                                <td>106 - 112</td>
+                                                <td>85 - 100 kg</td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                }
+                                else if (categoryName.Contains("nữ") || categoryName.Contains("nu"))
+                                {
+
+                                    <!-- THỜI TRANG NỮ -->
+
+                                    <table class="size-table">
+
+                                        <thead>
+
+                                            <tr>
+                                                <th>Size</th>
+                                                <th>Ngực (cm)</th>
+                                                <th>Eo (cm)</th>
+                                                <th>Cân nặng gợi ý</th>
+                                            </tr>
+
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr>
+                                                <td>S</td>
+                                                <td>78 - 82</td>
+                                                <td>60 - 64</td>
+                                                <td>40 - 48 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>M</td>
+                                                <td>82 - 86</td>
+                                                <td>64 - 68</td>
+                                                <td>48 - 55 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>L</td>
+                                                <td>86 - 90</td>
+                                                <td>68 - 72</td>
+                                                <td>55 - 62 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>XL</td>
+                                                <td>90 - 96</td>
+                                                <td>72 - 78</td>
+                                                <td>62 - 70 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>2XL</td>
+                                                <td>96 - 102</td>
+                                                <td>78 - 84</td>
+                                                <td>70 - 80 kg</td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                }
+                                else if (categoryName.Contains("khoác") || categoryName.Contains("khoac"))
+                                {
+
+                                    <!-- ÁO KHOÁC -->
+
+                                    <table class="size-table">
+
+                                        <thead>
+
+                                            <tr>
+                                                <th>Size</th>
+                                                <th>Vai (cm)</th>
+                                                <th>Ngực (cm)</th>
+                                                <th>Cân nặng gợi ý</th>
+                                            </tr>
+
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr>
+                                                <td>S</td>
+                                                <td>42 - 44</td>
+                                                <td>88 - 94</td>
+                                                <td>50 - 60 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>M</td>
+                                                <td>44 - 46</td>
+                                                <td>94 - 100</td>
+                                                <td>60 - 70 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>L</td>
+                                                <td>46 - 48</td>
+                                                <td>100 - 106</td>
+                                                <td>70 - 80 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>XL</td>
+                                                <td>48 - 50</td>
+                                                <td>106 - 112</td>
+                                                <td>80 - 90 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>2XL</td>
+                                                <td>50 - 52</td>
+                                                <td>112 - 120</td>
+                                                <td>90 - 105 kg</td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                }
+                                else
+                                {
+
+                                    <!-- ÁO NAM VÀ CÁC SẢN PHẨM KHÁC -->
+
+                                    <table class="size-table">
+
+                                        <thead>
+
+                                            <tr>
+                                                <th>Size</th>
+                                                <th>Vai (cm)</th>
+                                                <th>Ngực (cm)</th>
+                                                <th>Cân nặng gợi ý</th>
+                                            </tr>
+
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr>
+                                                <td>S</td>
+                                                <td>40 - 42</td>
+                                                <td>88 - 94</td>
+                                                <td>50 - 60 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>M</td>
+                                                <td>42 - 44</td>
+                                                <td>94 - 100</td>
+                                                <td>60 - 70 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>L</td>
+                                                <td>44 - 46</td>
+                                                <td>100 - 106</td>
+                                                <td>70 - 80 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>XL</td>
+                                                <td>46 - 48</td>
+                                                <td>106 - 112</td>
+                                                <td>80 - 90 kg</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>2XL</td>
+                                                <td>48 - 50</td>
+                                                <td>112 - 120</td>
+                                                <td>90 - 105 kg</td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                }
+
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ================= QUANTITY ================= -->
+
+                        <div class="form-group-tt"
+                             style="margin-top:22px;">
+
+                            <label class="form-label-tt">
+                                Số lượng
+                            </label>
+
+                            <input type="number"
+                                   name="quantity"
+                                   class="quantity-input"
+                                   value="1"
+                                   min="1"
+                                   max="@Model.Stock"
+                                   required />
+
+                        </div>
+
+
+                        <!-- ================= ADD TO CART ================= -->
+
+                        <button type="submit"
+                                class="btn-add-cart">
+
+                            🛒 THÊM VÀO GIỎ
+
+                        </button>
+
+
+                    </form>
+
+                }
+                else
+                {
+
+                    <button type="button"
+                            class="btn-add-cart"
+                            disabled
+                            style="background:#999;cursor:not-allowed;">
+
+                        SẢN PHẨM HẾT HÀNG
+
+                    </button>
+
+                }
+
+
+                <!-- ================= BACK ================= -->
+
+                <a href="@Url.Action("Index", "Product")"
+                   class="btn-back">
+
+                    ← Tiếp tục mua sắm
+
+                </a>
+
+
+                <!-- ================= BENEFITS ================= -->
+
+                <div class="product-benefits">
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            🚚
+                        </div>
+
+                        <div class="benefit-text">
+
+                            <strong>
+                                Giao hàng toàn quốc
+                            </strong>
+
+                            <span>
+                                Đóng gói cẩn thận, giao hàng nhanh.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            🔄
+                        </div>
+
+                        <div class="benefit-text">
+
+                            <strong>
+                                Đổi trả dễ dàng
+                            </strong>
+
+                            <span>
+                                Hỗ trợ đổi trả theo chính sách cửa hàng.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            🔒
+                        </div>
+
+                        <div class="benefit-text">
+
+                            <strong>
+                                Thanh toán an toàn
+                            </strong>
+
+                            <span>
+                                Thông tin khách hàng được bảo mật.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

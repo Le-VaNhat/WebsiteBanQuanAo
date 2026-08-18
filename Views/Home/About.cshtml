@@ -1,0 +1,428 @@
+﻿@{
+    ViewBag.Title = "Giới thiệu";
+}
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f7f7f7;
+    }
+
+    /* ================= ABOUT HERO ================= */
+
+    .about-page {
+        min-height: 100vh;
+    }
+
+    .about-banner {
+        min-height: 420px;
+        position: relative;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(0,0,0,0.75),
+                rgba(0,0,0,0.35)
+            ),
+            url('@Url.Content("~/Content/Images/1.jpg")');
+
+        background-size: cover;
+        background-position: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        color: white;
+    }
+
+    .about-banner-content {
+        max-width: 800px;
+        padding: 30px;
+    }
+
+        .about-banner-content h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .about-banner-content p {
+            font-size: 19px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+
+    /* ================= CONTENT ================= */
+
+    .about-container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 70px 20px;
+    }
+
+    .about-intro {
+        text-align: center;
+        max-width: 850px;
+        margin: auto;
+        margin-bottom: 60px;
+    }
+
+        .about-intro h2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .about-intro p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #666;
+        }
+
+
+    /* ================= INFO BOX ================= */
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .about-card {
+        background: white;
+        padding: 35px 25px;
+        border-radius: 8px;
+
+        text-align: center;
+
+        box-shadow:
+            0 4px 18px
+            rgba(0,0,0,.08);
+
+        transition: .25s;
+    }
+
+        .about-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 10px 28px
+                rgba(0,0,0,.13);
+        }
+
+    .about-icon {
+        font-size: 45px;
+        margin-bottom: 18px;
+    }
+
+    .about-card h3 {
+        font-size: 21px;
+        margin-bottom: 15px;
+        color: #222;
+    }
+
+    .about-card p {
+        color: #777;
+        line-height: 1.7;
+        font-size: 15px;
+        margin: 0;
+    }
+
+
+    /* ================= STORY ================= */
+
+    .about-story {
+        margin-top: 70px;
+
+        background: white;
+
+        padding: 50px;
+
+        border-radius: 10px;
+
+        box-shadow:
+            0 4px 20px
+            rgba(0,0,0,.07);
+    }
+
+        .about-story h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .about-story p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+
+    /* ================= CTA ================= */
+
+    .about-action {
+        margin-top: 60px;
+
+        background: #111;
+
+        color: white;
+
+        padding: 55px 30px;
+
+        text-align: center;
+
+        border-radius: 10px;
+    }
+
+        .about-action h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .about-action p {
+            color: #ccc;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+    .about-button {
+        display: inline-block;
+
+        background: #e63946;
+
+        color: white;
+
+        padding: 14px 32px;
+
+        text-decoration: none;
+
+        font-weight: bold;
+
+        border-radius: 5px;
+
+        transition: .2s;
+    }
+
+        .about-button:hover {
+            background: #c92532;
+            color: white;
+            text-decoration: none;
+        }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @@media (max-width: 800px) {
+
+        .about-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .about-banner-content h1 {
+            font-size: 40px;
+        }
+
+        .about-story {
+            padding: 30px 20px;
+        }
+
+    }
+
+</style>
+
+
+<main class="about-page">
+
+
+    <!-- ================= BANNER ================= -->
+
+    <section class="about-banner">
+
+        <div class="about-banner-content">
+
+            <h1>
+                GIỚI THIỆU THIÊN THAI SHOP
+            </h1>
+
+            <p>
+                Nơi mang đến những sản phẩm thời trang hiện đại,
+                chất lượng và phù hợp với phong cách của bạn.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <section class="about-container">
+
+
+        <!-- INTRO -->
+
+        <div class="about-intro">
+
+            <h2>
+                Về Thiên Thai Shop
+            </h2>
+
+            <p>
+                Thiên Thai Shop là website mua sắm thời trang trực tuyến,
+                cung cấp nhiều sản phẩm dành cho nam và nữ với phong cách
+                hiện đại, trẻ trung và phù hợp với nhiều nhu cầu khác nhau.
+            </p>
+
+            <p>
+                Chúng tôi mong muốn mang đến cho khách hàng trải nghiệm
+                mua sắm đơn giản, tiện lợi và nhanh chóng. Tại Thiên Thai Shop,
+                khách hàng có thể dễ dàng tìm kiếm sản phẩm, lựa chọn kích thước,
+                thêm sản phẩm vào giỏ hàng và mua sắm trực tuyến.
+            </p>
+
+        </div>
+
+
+
+        <!-- FEATURES -->
+
+        <div class="about-grid">
+
+
+            <div class="about-card">
+
+                <div class="about-icon">
+                    👕
+                </div>
+
+                <h3>
+                    Sản phẩm đa dạng
+                </h3>
+
+                <p>
+                    Cung cấp nhiều sản phẩm thời trang như áo nam,
+                    áo khoác, quần và thời trang nữ với nhiều mẫu mã
+                    phù hợp với nhiều phong cách khác nhau.
+                </p>
+
+            </div>
+
+
+
+            <div class="about-card">
+
+                <div class="about-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    Chất lượng sản phẩm
+                </h3>
+
+                <p>
+                    Thiên Thai Shop luôn hướng đến việc lựa chọn
+                    những sản phẩm có chất lượng tốt và mang lại
+                    trải nghiệm hài lòng cho khách hàng.
+                </p>
+
+            </div>
+
+
+
+            <div class="about-card">
+
+                <div class="about-icon">
+                    🛒
+                </div>
+
+                <h3>
+                    Mua sắm tiện lợi
+                </h3>
+
+                <p>
+                    Website được xây dựng với mục tiêu giúp khách hàng
+                    dễ dàng tìm kiếm, xem thông tin sản phẩm và mua sắm
+                    một cách nhanh chóng.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- STORY -->
+
+        <div class="about-story">
+
+            <h2>
+                Câu chuyện của chúng tôi
+            </h2>
+
+            <p>
+                Thiên Thai Shop được xây dựng với mong muốn tạo ra một
+                không gian mua sắm thời trang trực tuyến đơn giản và
+                dễ sử dụng. Chúng tôi hiểu rằng thời trang không chỉ
+                là quần áo mà còn là cách mỗi người thể hiện cá tính
+                và phong cách riêng của mình.
+            </p>
+
+            <p>
+                Vì vậy, chúng tôi luôn cố gắng phát triển website,
+                cập nhật thêm nhiều sản phẩm và cải thiện trải nghiệm
+                mua sắm để khách hàng có thể dễ dàng tìm thấy những
+                sản phẩm phù hợp với nhu cầu của mình.
+            </p>
+
+            <p>
+                Thiên Thai Shop mong muốn trở thành một địa chỉ mua sắm
+                thời trang trực tuyến tiện lợi, nơi khách hàng có thể
+                khám phá nhiều phong cách và lựa chọn những sản phẩm
+                phù hợp với bản thân.
+            </p>
+
+        </div>
+
+
+
+        <!-- CTA -->
+
+        <div class="about-action">
+
+            <h2>
+                Khám phá phong cách của bạn
+            </h2>
+
+            <p>
+                Hãy cùng Thiên Thai Shop khám phá những sản phẩm
+                thời trang phù hợp với phong cách riêng của bạn.
+            </p>
+
+            <a href="@Url.Action("Index", "Product")"
+               class="about-button">
+
+                XEM SẢN PHẨM →
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+</main>

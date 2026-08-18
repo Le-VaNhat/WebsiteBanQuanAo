@@ -1,0 +1,1111 @@
+﻿@model IEnumerable<ThienThaiShop.Models.Product>
+
+@{
+    ViewBag.Title = "Sản phẩm - Thiên Thai Shop";
+
+    var selectedCategory = ViewBag.SelectedCategory != null
+        ? ViewBag.SelectedCategory.ToString()
+        : "";
+}
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f7f7f7;
+        color: #222;
+    }
+
+    .product-page {
+        min-height: 100vh;
+    }
+
+    /* ================= HEADER ================= */
+
+    .tt-header {
+        background: #111;
+        color: white;
+    }
+
+    .tt-header-inner {
+        max-width: 1200px;
+        margin: auto;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+        gap: 25px;
+    }
+
+    .logo {
+        color: white;
+        text-decoration: none;
+        font-size: 27px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+
+        .logo span {
+            color: #e63946;
+        }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+    }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+            .menu a:hover {
+                color: #e63946;
+            }
+
+    .header-icons {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+        .header-icons a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+            .header-icons a:hover {
+                color: #e63946;
+            }
+
+    /* ================= BANNER ================= */
+
+    .product-banner {
+        min-height: 300px;
+        background: linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.2)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=80') center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+
+        .product-banner h1 {
+            font-size: 48px;
+            margin: 0 0 12px;
+            font-weight: bold;
+        }
+
+        .product-banner p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+    /* ================= CONTAINER ================= */
+
+    .product-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 50px 15px 70px;
+    }
+
+    /* ================= TOOLBAR ================= */
+
+    .product-toolbar {
+        background: white;
+        padding: 22px;
+        border-radius: 8px;
+        box-shadow: 0 3px 15px rgba(0,0,0,.06);
+        margin-bottom: 35px;
+    }
+
+    .toolbar-row {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 15px;
+    }
+
+    .search-box {
+        position: relative;
+    }
+
+        .search-box input {
+            width: 100%;
+            height: 46px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 0 45px 0 15px;
+            font-size: 15px;
+            outline: none;
+        }
+
+            .search-box input:focus {
+                border-color: #111;
+            }
+
+    .search-icon {
+        position: absolute;
+        right: 15px;
+        top: 13px;
+        font-size: 18px;
+    }
+
+    .filter-select {
+        width: 100%;
+        height: 46px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 0 12px;
+        font-size: 15px;
+        background: white;
+        outline: none;
+    }
+
+        .filter-select:focus {
+            border-color: #111;
+        }
+
+    /* ================= TITLE ================= */
+
+    .section-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+    .product-count {
+        color: #777;
+        font-size: 14px;
+    }
+
+    /* ================= PRODUCT GRID ================= */
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .product-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 3px 14px rgba(0,0,0,.08);
+        transition: .25s;
+        position: relative;
+    }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 28px rgba(0,0,0,.14);
+        }
+
+    /* ================= IMAGE ================= */
+
+    .product-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 330px;
+        overflow: hidden;
+        background: #eee;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: .4s;
+    }
+
+    .product-card:hover .product-image {
+        transform: scale(1.05);
+    }
+
+    .stock-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+        background: #198754;
+    }
+
+    .out-stock-badge {
+        background: #dc3545;
+    }
+
+    /* ================= PRODUCT INFO ================= */
+
+    .product-info {
+        padding: 18px;
+    }
+
+    .product-category {
+        color: #888;
+        font-size: 13px;
+        margin-bottom: 7px;
+    }
+
+    .product-name {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        min-height: 43px;
+        line-height: 1.35;
+    }
+
+    .product-description {
+        color: #777;
+        font-size: 13px;
+        line-height: 1.5;
+        height: 40px;
+        overflow: hidden;
+        margin-bottom: 12px;
+    }
+
+    .product-price {
+        color: #e63946;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 14px;
+    }
+
+    .product-stock {
+        font-size: 13px;
+        color: #777;
+        margin-bottom: 15px;
+    }
+
+        .product-stock strong {
+            color: #222;
+        }
+
+    /* ================= BUTTON ================= */
+
+    .detail-button {
+        display: block;
+        width: 100%;
+        padding: 11px 15px;
+        background: #111;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        transition: .2s;
+    }
+
+        .detail-button:hover {
+            background: #e63946;
+            color: white;
+            text-decoration: none;
+        }
+
+    .disabled-button {
+        display: block;
+        width: 100%;
+        padding: 11px 15px;
+        background: #ddd;
+        color: #888;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: not-allowed;
+    }
+
+    /* ================= NO PRODUCT ================= */
+
+    .no-product {
+        display: none;
+        background: white;
+        padding: 70px 20px;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 3px 15px rgba(0,0,0,.06);
+    }
+
+    .no-product-icon {
+        font-size: 50px;
+        margin-bottom: 15px;
+    }
+
+    .no-product h3 {
+        margin-bottom: 10px;
+        font-size: 23px;
+    }
+
+    .no-product p {
+        color: #777;
+        margin: 0;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .tt-footer {
+        background: #111;
+        color: white;
+        padding: 45px 0 20px;
+    }
+
+    .footer-grid {
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        padding: 0 15px;
+    }
+
+        .footer-grid h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .footer-grid p,
+        .footer-grid a {
+            color: #bbb;
+            font-size: 14px;
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+            .footer-grid a:hover {
+                color: white;
+            }
+
+    .footer-bottom {
+        max-width: 1200px;
+        margin: 30px auto 0;
+        padding: 20px 15px 0;
+        border-top: 1px solid #333;
+        color: #888;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @@media (max-width: 1000px) {
+
+        .products-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .toolbar-row {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .search-box {
+            grid-column: span 2;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @@media (max-width: 700px) {
+
+        .products-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .toolbar-row {
+            grid-template-columns: 1fr;
+        }
+
+        .search-box {
+            grid-column: auto;
+        }
+
+        .product-banner h1 {
+            font-size: 36px;
+        }
+
+        .product-banner p {
+            font-size: 15px;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @@media (max-width: 500px) {
+
+        .products-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .tt-header-inner {
+            height: 65px;
+        }
+
+        .logo {
+            font-size: 22px;
+        }
+
+        .header-icons {
+            gap: 8px;
+        }
+
+        .product-banner {
+            min-height: 230px;
+        }
+
+            .product-banner h1 {
+                font-size: 30px;
+            }
+    }
+</style>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="tt-header">
+
+    <div class="tt-header-inner">
+
+        <a href="@Url.Action("Index", "Home")" class="logo">
+            THIÊN THAI<span>.</span>
+        </a>
+
+        <nav class="menu">
+
+            <a href="@Url.Action("Index", "Home")">
+                Trang chủ
+            </a>
+
+            <a href="@Url.Action("Index", "Product")">
+                Sản phẩm
+            </a>
+
+            <a href="@Url.Action("BestSeller", "Product")">
+                Bán chạy
+            </a>
+
+            <a href="@Url.Action("Contact", "Home")">
+                Liên hệ
+            </a>
+
+        </nav>
+
+        <div class="header-icons">
+
+            <a href="#searchBox" title="Tìm kiếm">
+                🔍
+            </a>
+
+            <a href="@Url.Action("Login", "Account")" title="Tài khoản">
+                👤
+            </a>
+
+            <a href="@Url.Action("Index", "Cart")" title="Giỏ hàng">
+                🛒
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= BANNER ================= -->
+
+<section class="product-banner">
+
+    <div>
+
+        <h1>
+            @(string.IsNullOrEmpty(selectedCategory)
+                ? "SẢN PHẨM"
+                : selectedCategory.ToUpper())
+        </h1>
+
+        <p>
+            @(string.IsNullOrEmpty(selectedCategory)
+                ? "Khám phá bộ sưu tập thời trang mới nhất của Thiên Thai"
+                : "Khám phá các sản phẩm thuộc danh mục " + selectedCategory)
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCT CONTENT ================= -->
+
+<main class="product-page">
+
+    <div class="product-container">
+
+        <!-- ================= SEARCH / FILTER ================= -->
+
+        <div class="product-toolbar">
+
+            <div class="toolbar-row">
+
+                <div class="search-box" id="searchBox">
+
+                    <input type="text"
+                           id="productSearch"
+                           placeholder="Tìm kiếm sản phẩm..."
+                           autocomplete="off" />
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                </div>
+
+
+                <select id="categoryFilter" class="filter-select">
+
+                    <option value="">
+                        Tất cả danh mục
+                    </option>
+
+                    <option value="Áo nam"
+                            @(selectedCategory == "Áo nam" ? "selected" : "")>
+                        Áo nam
+                    </option>
+
+                    <option value="Áo khoác"
+                            @(selectedCategory == "Áo khoác" ? "selected" : "")>
+                        Áo khoác
+                    </option>
+
+                    <option value="Quần"
+                            @(selectedCategory == "Quần" ? "selected" : "")>
+                        Quần
+                    </option>
+
+                    <option value="Thời trang nữ"
+                            @(selectedCategory == "Thời trang nữ" ? "selected" : "")>
+                        Thời trang nữ
+                    </option>
+
+                </select>
+
+
+                <select id="priceFilter" class="filter-select">
+
+                    <option value="">
+                        Tất cả mức giá
+                    </option>
+
+                    <option value="0-300000">
+                        Dưới 300.000₫
+                    </option>
+
+                    <option value="300000-500000">
+                        300.000₫ - 500.000₫
+                    </option>
+
+                    <option value="500000-1000000">
+                        500.000₫ - 1.000.000₫
+                    </option>
+
+                    <option value="1000000-999999999">
+                        Trên 1.000.000₫
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= TITLE ================= -->
+
+        <div class="section-heading">
+
+            <h2 id="productTitle">
+                @(string.IsNullOrEmpty(selectedCategory)
+                    ? "Tất cả sản phẩm"
+                    : selectedCategory)
+            </h2>
+
+            <div class="product-count">
+
+                <span id="productCount">
+                    @(Model != null ? Model.Count() : 0)
+                </span>
+
+                sản phẩm
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= PRODUCTS ================= -->
+
+        <div class="products-grid" id="productsGrid">
+
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <div class="product-card"
+                         data-name="@item.Name"
+                         data-category="@(item.Category != null ? item.Category.Name : "")"
+                         data-price="@item.Price">
+
+                        <div class="product-image-wrapper">
+
+                            @if (!string.IsNullOrEmpty(item.ImageUrl))
+                            {
+                                <img class="product-image"
+                                     src="@item.ImageUrl"
+                                     alt="@item.Name"
+                                     onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80';" />
+                            }
+                            else
+                            {
+                                <img class="product-image"
+                                     src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+                                     alt="@item.Name" />
+                            }
+
+                            @if (item.Stock > 0)
+                            {
+                                <div class="stock-badge">
+                                    CÒN HÀNG
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="stock-badge out-stock-badge">
+                                    HẾT HÀNG
+                                </div>
+                            }
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <div class="product-category">
+
+                                @if (item.Category != null)
+                                {
+                                    @item.Category.Name
+                                }
+                                else
+                                {
+                                    <span>Thời trang</span>
+                                }
+
+                            </div>
+
+
+                            <div class="product-name">
+                                @item.Name
+                            </div>
+
+
+                            <div class="product-description">
+
+                                @if (!string.IsNullOrEmpty(item.Description))
+                                {
+                                    @item.Description
+                                }
+                                else
+                                {
+                                    <span>Sản phẩm thời trang Thiên Thai.</span>
+                                }
+
+                            </div>
+
+
+                            <div class="product-price">
+                                @item.Price.ToString("N0")₫
+                            </div>
+
+
+                            <div class="product-stock">
+
+                                Số lượng:
+
+                                <strong>
+                                    @item.Stock
+                                </strong>
+
+                            </div>
+
+
+                            @if (item.Stock > 0)
+                            {
+                                <a class="detail-button"
+                                   href="@Url.Action("Details", "Product", new { id = item.ProductId })">
+
+                                    XEM CHI TIẾT →
+
+                                </a>
+                            }
+                            else
+                            {
+                                <div class="disabled-button">
+                                    HẾT HÀNG
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+                }
+            }
+
+        </div>
+
+
+        <!-- ================= NO RESULT ================= -->
+
+        <div class="no-product" id="noProduct">
+
+            <div class="no-product-icon">
+                🔍
+            </div>
+
+            <h3>
+                Không tìm thấy sản phẩm
+            </h3>
+
+            <p>
+                Hãy thử tìm kiếm với từ khóa hoặc bộ lọc khác.
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="tt-footer">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>
+                THIÊN THAI SHOP
+            </h3>
+
+            <p>
+                Website bán quần áo thời trang Thiên Thai.
+                Cung cấp các sản phẩm thời trang nam nữ
+                chất lượng với giá hợp lý.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Thông tin
+            </h3>
+
+            <p>
+                <a href="@Url.Action("About", "Home")">
+                    Về chúng tôi
+                </a>
+            </p>
+
+            <p>
+                <a href="#">
+                    Chính sách bảo mật
+                </a>
+            </p>
+
+            <p>
+                <a href="#">
+                    Điều khoản sử dụng
+                </a>
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Hỗ trợ
+            </h3>
+
+            <p>
+                <a href="#">
+                    Hướng dẫn mua hàng
+                </a>
+            </p>
+
+            <p>
+                <a href="#">
+                    Chính sách đổi trả
+                </a>
+            </p>
+
+            <p>
+                <a href="#">
+                    Câu hỏi thường gặp
+                </a>
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Liên hệ
+            </h3>
+
+            <p>
+                📍 Hà Nội, Việt Nam
+            </p>
+
+            <p>
+                ☎ 0123 456 789
+            </p>
+
+            <p>
+                ✉ contact@thienthai.vn
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Thiên Thai Shop. All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var searchInput =
+            document.getElementById("productSearch");
+
+        var categoryFilter =
+            document.getElementById("categoryFilter");
+
+        var priceFilter =
+            document.getElementById("priceFilter");
+
+        var productCards =
+            document.querySelectorAll(".product-card");
+
+        var productCount =
+            document.getElementById("productCount");
+
+        var productTitle =
+            document.getElementById("productTitle");
+
+        var noProduct =
+            document.getElementById("noProduct");
+
+
+        function filterProducts() {
+
+            var searchText =
+                searchInput.value
+                    .toLowerCase()
+                    .trim();
+
+            var selectedCategory =
+                categoryFilter.value;
+
+            var selectedPrice =
+                priceFilter.value;
+
+            var visibleCount = 0;
+
+
+            productCards.forEach(function (card) {
+
+                var name =
+                    (card.getAttribute("data-name") || "")
+                        .toLowerCase();
+
+                var category =
+                    card.getAttribute("data-category") || "";
+
+                var price =
+                    parseFloat(
+                        card.getAttribute("data-price")
+                    ) || 0;
+
+
+                var matchSearch =
+                    searchText === "" ||
+                    name.includes(searchText);
+
+
+                var matchCategory =
+                    selectedCategory === "" ||
+                    category === selectedCategory;
+
+
+                var matchPrice = true;
+
+
+                if (selectedPrice !== "") {
+
+                    var priceParts =
+                        selectedPrice.split("-");
+
+                    var minPrice =
+                        parseFloat(priceParts[0]);
+
+                    var maxPrice =
+                        parseFloat(priceParts[1]);
+
+
+                    matchPrice =
+                        price >= minPrice &&
+                        price <= maxPrice;
+
+                }
+
+
+                if (
+                    matchSearch &&
+                    matchCategory &&
+                    matchPrice
+                ) {
+
+                    card.style.display = "";
+
+                    visibleCount++;
+
+                }
+                else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+
+            productCount.textContent =
+                visibleCount;
+
+
+            if (selectedCategory === "") {
+
+                productTitle.textContent =
+                    "Tất cả sản phẩm";
+
+            }
+            else {
+
+                productTitle.textContent =
+                    selectedCategory;
+
+            }
+
+
+            if (visibleCount === 0) {
+
+                noProduct.style.display =
+                    "block";
+
+                document.getElementById("productsGrid").style.display =
+                    "none";
+
+            }
+            else {
+
+                noProduct.style.display =
+                    "none";
+
+                document.getElementById("productsGrid").style.display =
+                    "grid";
+
+            }
+
+        }
+
+
+        searchInput.addEventListener(
+            "input",
+            filterProducts
+        );
+
+        categoryFilter.addEventListener(
+            "change",
+            function () {
+
+                var category = categoryFilter.value;
+
+                if (category === "") {
+
+                    window.location.href =
+                        '@Url.Action("Index", "Product")';
+
+                }
+                else {
+
+                    window.location.href =
+                        '@Url.Action("Index", "Product")'
+                        + '?category='
+                        + encodeURIComponent(category);
+
+                }
+
+            }
+        );
+
+        priceFilter.addEventListener(
+            "change",
+            filterProducts
+        );
+
+
+        filterProducts();
+
+    });
+
+</script>
