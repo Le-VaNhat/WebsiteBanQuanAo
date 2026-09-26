@@ -1,0 +1,740 @@
+@model IEnumerable<ThienThaiShop.Models.Product>
+
+@{
+    ViewBag.Title = "Quản lý sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var categories =
+        ViewBag.Categories as List<ThienThaiShop.Models.Category>;
+
+    int? selectedCategory = ViewBag.CategoryId;
+
+    var productSizeStocks =
+        ViewBag.ProductSizeStocks
+        as Dictionary<int, Dictionary<string, int>>;
+}
+
+<style>
+    .admin-page {
+        padding: 40px 0;
+        background: #f5f5f5;
+        min-height: 80vh;
+    }
+
+    .admin-box {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 3px 12px rgba(0,0,0,.08);
+        overflow-x: auto;
+    }
+
+    .admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+        .admin-header h2 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+    .header-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        border: none;
+        padding: 9px 15px;
+        border-radius: 6px;
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        margin: 2px;
+    }
+
+        .btn:hover {
+            text-decoration: none;
+            opacity: .9;
+        }
+
+    .btn-black {
+        background: #222;
+        color: white;
+    }
+
+    .btn-green {
+        background: #5cb85c;
+        color: white;
+    }
+
+    .btn-edit {
+        background: #f0ad4e;
+        color: white;
+    }
+
+    .btn-danger {
+        background: #d9534f;
+        color: white;
+    }
+
+    .btn-success {
+        background: #5cb85c;
+        color: white;
+    }
+
+    .btn-size {
+        background: #337ab7;
+        color: white;
+    }
+
+    .btn-category {
+        background: #6f42c1;
+        color: white;
+    }
+
+    .search-box {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+        .search-box input,
+        .search-box select {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .search-box input {
+            flex: 1;
+        }
+
+    .alert {
+        padding: 12px 15px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    .alert-success {
+        background: #dff0d8;
+        color: #3c763d;
+    }
+
+    .alert-danger {
+        background: #f2dede;
+        color: #a94442;
+    }
+
+    .product-table {
+        width: 100%;
+        min-width: 1500px;
+        border-collapse: collapse;
+    }
+
+        .product-table th,
+        .product-table td {
+            padding: 13px 10px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .product-table th {
+            background: #f8f8f8;
+            font-weight: 700;
+        }
+
+            .product-table td:nth-child(3),
+            .product-table th:nth-child(3) {
+                text-align: left;
+            }
+
+    .product-image {
+        width: 60px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .no-image {
+        width: 60px;
+        height: 70px;
+        background: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        color: #777;
+        border-radius: 5px;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 15px;
+        font-size: 12px;
+    }
+
+    .active {
+        background: #dff0d8;
+        color: #3c763d;
+    }
+
+    .inactive {
+        background: #f2dede;
+        color: #a94442;
+    }
+
+    .action-form {
+        display: inline-block;
+    }
+
+    .price {
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .action-buttons {
+        white-space: nowrap;
+    }
+
+    .category-fixed {
+        display: inline-block;
+        padding: 5px 9px;
+        border-radius: 15px;
+        background: #eee;
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .size-stock {
+        font-weight: 700;
+        min-width: 45px;
+    }
+
+    .stock-zero {
+        color: #d9534f;
+    }
+
+    .stock-low {
+        color: #f0ad4e;
+    }
+
+    .stock-good {
+        color: #3c763d;
+    }
+
+    .total-stock {
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .edit-link {
+        background: #f0ad4e;
+        color: #fff !important;
+        padding: 9px 15px;
+        border-radius: 6px;
+        text-decoration: none !important;
+        display: inline-block;
+        margin: 2px;
+    }
+
+        .edit-link:hover {
+            background: #ec971f;
+            color: #fff !important;
+        }
+
+    .size-link {
+        background: #337ab7;
+        color: #fff !important;
+        padding: 9px 15px;
+        border-radius: 6px;
+        text-decoration: none !important;
+        display: inline-block;
+        margin: 2px;
+    }
+
+        .size-link:hover {
+            background: #286090;
+            color: #fff !important;
+        }
+
+    @@media (max-width: 700px) {
+
+        .admin-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .header-buttons {
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex-direction: column;
+        }
+    }
+</style>
+
+
+<div class="admin-page">
+
+    <div class="container">
+
+        <div class="admin-box">
+
+            <div class="admin-header">
+
+                <h2>
+                    Quản lý sản phẩm
+                </h2>
+
+                <div class="header-buttons">
+
+                    <a href="@Url.Action("Index", "Admin")"
+                       class="btn btn-black">
+                        ← Dashboard
+                    </a>
+
+                    <a href="@Url.Action("Categories", "Admin")"
+                       class="btn btn-category">
+                        📂 Danh mục
+                    </a>
+
+                    <a href="@Url.Action("CreateProduct", "Admin")"
+                       class="btn btn-green">
+                        + Thêm sản phẩm
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["Success"]
+                </div>
+            }
+
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["Error"]
+                </div>
+            }
+
+
+            @using (Html.BeginForm(
+                "Products",
+                "Admin",
+                FormMethod.Get))
+            {
+                <div class="search-box">
+
+                    <input type="text"
+                           name="search"
+                           value="@ViewBag.Search"
+                           placeholder="Tìm tên sản phẩm..." />
+
+                    <select name="categoryId">
+
+                        <option value="">
+                            -- Tất cả danh mục --
+                        </option>
+
+                        @if (categories != null)
+                        {
+                            foreach (var category in categories)
+                            {
+                                if (selectedCategory == category.CategoryId)
+                                {
+                                    <option value="@category.CategoryId"
+                                            selected="selected">
+                                        @category.Name
+                                    </option>
+                                }
+                                else
+                                {
+                                    <option value="@category.CategoryId">
+                                        @category.Name
+                                    </option>
+                                }
+                            }
+                        }
+
+                    </select>
+
+                    <button type="submit"
+                            class="btn btn-black">
+                        Tìm kiếm
+                    </button>
+
+                </div>
+            }
+
+
+            <table class="product-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Ảnh</th>
+
+                        <th>Tên sản phẩm</th>
+
+                        <th>Danh mục</th>
+
+                        <th>Giá</th>
+
+                        <th>S</th>
+
+                        <th>M</th>
+
+                        <th>L</th>
+
+                        <th>XL</th>
+
+                        <th>2XL</th>
+
+                        <th>Tổng tồn</th>
+
+                        <th>Trạng thái</th>
+
+                        <th>Thao tác</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var product in Model)
+                        {
+                            Dictionary<string, int> sizeStocks = null;
+
+                            if (productSizeStocks != null &&
+                                productSizeStocks.ContainsKey(product.ProductId))
+                            {
+                                sizeStocks =
+                                    productSizeStocks[product.ProductId];
+                            }
+
+
+                            int stockS = 0;
+                            int stockM = 0;
+                            int stockL = 0;
+                            int stockXL = 0;
+                            int stock2XL = 0;
+
+
+                            if (sizeStocks != null)
+                            {
+                                if (sizeStocks.ContainsKey("S"))
+                                {
+                                    stockS = sizeStocks["S"];
+                                }
+
+                                if (sizeStocks.ContainsKey("M"))
+                                {
+                                    stockM = sizeStocks["M"];
+                                }
+
+                                if (sizeStocks.ContainsKey("L"))
+                                {
+                                    stockL = sizeStocks["L"];
+                                }
+
+                                if (sizeStocks.ContainsKey("XL"))
+                                {
+                                    stockXL = sizeStocks["XL"];
+                                }
+
+                                if (sizeStocks.ContainsKey("2XL"))
+                                {
+                                    stock2XL = sizeStocks["2XL"];
+                                }
+                            }
+
+
+                            int totalStock =
+                                stockS +
+                                stockM +
+                                stockL +
+                                stockXL +
+                                stock2XL;
+
+
+                            <tr>
+
+                                <td>
+                                    @product.ProductId
+                                </td>
+
+
+                                <td>
+
+                                    @if (!string.IsNullOrWhiteSpace(product.ImageUrl))
+                                    {
+                                        <img src="@Url.Content(product.ImageUrl)"
+                                             class="product-image"
+                                             alt="@product.Name" />
+                                    }
+                                    else
+                                    {
+                                        <div class="no-image">
+                                            Không có ảnh
+                                        </div>
+                                    }
+
+                                </td>
+
+
+                                <td>
+                                    <strong>
+                                        @product.Name
+                                    </strong>
+                                </td>
+
+
+                                <td>
+
+                                    @if (product.Category != null)
+                                    {
+                                        <span class="category-fixed">
+                                            @product.Category.Name
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="category-fixed">
+                                            Chưa có
+                                        </span>
+                                    }
+
+                                </td>
+
+
+                                <td class="price">
+
+                                    @String.Format(
+                                        "{0:N0} đ",
+                                        product.Price
+                                    )
+
+                                </td>
+
+
+                                <td class="size-stock
+                                    @(stockS == 0
+                                        ? "stock-zero"
+                                        : stockS <= 5
+                                            ? "stock-low"
+                                            : "stock-good")">
+
+                                    @stockS
+
+                                </td>
+
+
+                                <td class="size-stock
+                                    @(stockM == 0
+                                        ? "stock-zero"
+                                        : stockM <= 5
+                                            ? "stock-low"
+                                            : "stock-good")">
+
+                                    @stockM
+
+                                </td>
+
+
+                                <td class="size-stock
+                                    @(stockL == 0
+                                        ? "stock-zero"
+                                        : stockL <= 5
+                                            ? "stock-low"
+                                            : "stock-good")">
+
+                                    @stockL
+
+                                </td>
+
+
+                                <td class="size-stock
+                                    @(stockXL == 0
+                                        ? "stock-zero"
+                                        : stockXL <= 5
+                                            ? "stock-low"
+                                            : "stock-good")">
+
+                                    @stockXL
+
+                                </td>
+
+
+                                <td class="size-stock
+                                    @(stock2XL == 0
+                                        ? "stock-zero"
+                                        : stock2XL <= 5
+                                            ? "stock-low"
+                                            : "stock-good")">
+
+                                    @stock2XL
+
+                                </td>
+
+
+                                <td class="total-stock
+                                    @(totalStock == 0
+                                        ? "stock-zero"
+                                        : totalStock <= 10
+                                            ? "stock-low"
+                                            : "stock-good")">
+
+                                    @totalStock
+
+                                </td>
+
+
+                                <td>
+
+                                    @if (product.IsActive)
+                                    {
+                                        <span class="badge active">
+                                            Đang bán
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge inactive">
+                                            Đã tắt
+                                        </span>
+                                    }
+
+                                </td>
+
+
+                                <td class="action-buttons">
+
+                                    @* ============================= *@
+                                    @* NÚT SỬA - LUÔN TRUYỀN PRODUCT ID *@
+                                    @* ============================= *@
+
+                                    <a href="@Url.Action(
+                                        "EditProduct",
+                                        "Admin",
+                                        new
+                                        {
+                                            id = product.ProductId
+                                        })"
+                                       class="edit-link">
+
+                                        ✏️ Sửa
+
+                                    </a>
+
+
+                                    @* ============================= *@
+                                    @* NÚT QUẢN LÝ SIZE *@
+                                    @* ============================= *@
+
+                                    <a href="@Url.Action(
+                                        "ManageProductSizes",
+                                        "Admin",
+                                        new
+                                        {
+                                            id = product.ProductId
+                                        })"
+                                       class="size-link">
+
+                                        📏 Size
+
+                                    </a>
+
+
+                                    @* ============================= *@
+                                    @* BẬT / TẮT SẢN PHẨM *@
+                                    @* ============================= *@
+
+                                    @using (Html.BeginForm(
+                                        "ToggleProduct",
+                                        "Admin",
+                                        FormMethod.Post,
+                                        new
+                                        {
+                                            @class = "action-form"
+                                        }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <input type="hidden"
+                                               name="id"
+                                               value="@product.ProductId" />
+
+
+                                        if (product.IsActive)
+                                        {
+                                            <button type="submit"
+                                                    class="btn btn-danger"
+                                                    onclick="return confirm('Bạn có chắc muốn tắt sản phẩm này?');">
+
+                                                Tắt
+
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit"
+                                                    class="btn btn-success">
+
+                                                Bật
+
+                                            </button>
+                                        }
+                                    }
+
+                                </td>
+
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+
+                            <td colspan="13"
+                                style="text-align:center; padding:30px; color:#777;">
+
+                                Không tìm thấy sản phẩm.
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,253 @@
+@model IEnumerable<ThienThaiShop.Models.Order>
+
+@{
+    ViewBag.Title = "Quản lý đơn hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var selectedStatus = ViewBag.SelectedStatus as string;
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2>🛒 Quản lý đơn hàng</h2>
+
+        <a href="@Url.Action("Index", "Admin")"
+           class="btn btn-secondary">
+            ← Quay lại Admin
+        </a>
+
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    <!-- Bộ lọc trạng thái -->
+
+    <div class="card mb-4">
+
+        <div class="card-body">
+
+            <form method="get"
+                  action="@Url.Action("Orders", "Admin")"
+                  class="row g-2 align-items-end">
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Lọc theo trạng thái
+                    </label>
+
+                    <select name="status"
+                            class="form-control">
+
+                        <option value="">
+                            -- Tất cả --
+                        </option>
+
+                        <option value="Pending"
+                                @(selectedStatus == "Pending" ? "selected" : "")>
+                            Chờ xác nhận
+                        </option>
+
+                        <option value="Confirmed"
+                                @(selectedStatus == "Confirmed" ? "selected" : "")>
+                            Đã xác nhận
+                        </option>
+
+                        <option value="Shipping"
+                                @(selectedStatus == "Shipping" ? "selected" : "")>
+                            Đang giao
+                        </option>
+
+                        <option value="Completed"
+                                @(selectedStatus == "Completed" ? "selected" : "")>
+                            Hoàn thành
+                        </option>
+
+                        <option value="Cancelled"
+                                @(selectedStatus == "Cancelled" ? "selected" : "")>
+                            Đã hủy
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <button type="submit"
+                            class="btn btn-primary w-100">
+                        🔍 Lọc
+                    </button>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <a href="@Url.Action("Orders", "Admin")"
+                       class="btn btn-outline-secondary w-100">
+                        Xóa lọc
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            Chưa có đơn hàng nào.
+        </div>
+    }
+    else
+    {
+        <div class="card">
+
+            <div class="card-body p-0">
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-hover mb-0">
+
+                        <thead class="table-dark">
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Khách hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Tổng tiền</th>
+                                <th>Thanh toán</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày đặt</th>
+                                <th style="width: 120px;">
+                                    Thao tác
+                                </th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var order in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        #@order.OrderId
+                                    </td>
+
+                                    <td>
+
+                                        @if (order.User != null)
+                                        {
+                                            @order.User.FullName
+                                        }
+                                        else
+                                        {
+                                            <span>Không xác định</span>
+                                        }
+
+                                    </td>
+
+                                    <td>
+                                        @order.Phone
+                                    </td>
+
+                                    <td>
+                                        <strong>
+                                            @order.TotalAmount.ToString("N0") đ
+                                        </strong>
+                                    </td>
+
+                                    <td>
+                                        @(string.IsNullOrWhiteSpace(order.PaymentMethod)
+                                            ? "Chưa xác định"
+                                            : order.PaymentMethod)
+                                    </td>
+
+                                    <td>
+
+                                        @if (order.Status == "Pending")
+                                        {
+                                            <span class="badge bg-warning text-dark">
+                                                Chờ xác nhận
+                                            </span>
+                                        }
+                                        else if (order.Status == "Confirmed")
+                                        {
+                                            <span class="badge bg-primary">
+                                                Đã xác nhận
+                                            </span>
+                                        }
+                                        else if (order.Status == "Shipping")
+                                        {
+                                            <span class="badge bg-info text-dark">
+                                                Đang giao
+                                            </span>
+                                        }
+                                        else if (order.Status == "Completed")
+                                        {
+                                            <span class="badge bg-success">
+                                                Hoàn thành
+                                            </span>
+                                        }
+                                        else if (order.Status == "Cancelled")
+                                        {
+                                            <span class="badge bg-danger">
+                                                Đã hủy
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">
+                                                @(order.Status ?? "Chưa xác định")
+                                            </span>
+                                        }
+
+                                    </td>
+
+                                    <td>
+                                        @order.CreatedAt.ToString("dd/MM/yyyy HH:mm")
+                                    </td>
+
+                                    <td>
+
+                                        <a href="@Url.Action("OrderDetails", "Admin", new { id = order.OrderId })"
+                                           class="btn btn-sm btn-info text-white">
+                                            Xem
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>

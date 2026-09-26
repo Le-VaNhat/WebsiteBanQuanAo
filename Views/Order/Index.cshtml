@@ -1,0 +1,399 @@
+@using System.Linq
+@model IEnumerable<ThienThaiShop.Models.Order>
+
+@{
+    ViewBag.Title = "Đơn hàng của tôi - Thiên Thai Shop";
+}
+
+<style>
+
+    .order-page {
+        background: #f7f7f7;
+        min-height: 100vh;
+        padding-bottom: 70px;
+    }
+
+    .order-header {
+        background: #111;
+        color: white;
+        text-align: center;
+        padding: 45px 20px;
+    }
+
+        .order-header h1 {
+            margin: 0 0 10px;
+            font-size: 36px;
+        }
+
+        .order-header p {
+            margin: 0;
+            color: #ccc;
+        }
+
+    .order-container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 40px 15px;
+    }
+
+    .message-success {
+        background: #e8f7e8;
+        color: #267326;
+        padding: 14px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .message-error {
+        background: #ffe5e5;
+        color: #c92532;
+        padding: 14px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .order-box {
+        background: white;
+        border-radius: 6px;
+        box-shadow: 0 3px 12px rgba(0,0,0,.07);
+        overflow: hidden;
+    }
+
+    .order-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .order-table th {
+            background: #111;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .order-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-table tr:last-child td {
+            border-bottom: none;
+        }
+
+    .order-id {
+        font-weight: bold;
+    }
+
+    .order-price {
+        color: #e63946;
+        font-weight: bold;
+    }
+
+    .status {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .status-pending {
+        background: #fff3cd;
+        color: #856404;
+    }
+
+    .status-confirmed {
+        background: #d1ecf1;
+        color: #0c5460;
+    }
+
+    .status-shipping {
+        background: #cce5ff;
+        color: #004085;
+    }
+
+    .status-completed {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    .status-cancelled {
+        background: #f8d7da;
+        color: #721c24;
+    }
+
+    .btn-detail {
+        display: inline-block;
+        background: #111;
+        color: white;
+        padding: 8px 14px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 13px;
+    }
+
+        .btn-detail:hover {
+            background: #e63946;
+            color: white;
+            text-decoration: none;
+        }
+
+    .empty-orders {
+        background: white;
+        padding: 70px 20px;
+        text-align: center;
+        border-radius: 6px;
+        box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    }
+
+    .empty-icon {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    .empty-orders p {
+        color: #777;
+        margin-bottom: 25px;
+    }
+
+    .btn-shopping {
+        display: inline-block;
+        background: #111;
+        color: white;
+        padding: 13px 25px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+        .btn-shopping:hover {
+            background: #e63946;
+            color: white;
+            text-decoration: none;
+        }
+
+    @@media (max-width: 700px) {
+
+        .order-table {
+            font-size: 13px;
+        }
+
+            .order-table th,
+            .order-table td {
+                padding: 10px 7px;
+            }
+
+        .hide-mobile {
+            display: none;
+        }
+    }
+</style>
+
+
+<div class="order-page">
+
+    <!-- HEADER -->
+
+    <div class="order-header">
+
+        <h1>
+            ĐƠN HÀNG CỦA TÔI
+        </h1>
+
+        <p>
+            Theo dõi các đơn hàng bạn đã đặt
+        </p>
+
+    </div>
+
+
+    <div class="order-container">
+
+        <!-- THÔNG BÁO -->
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="message-success">
+                @TempData["Success"]
+            </div>
+        }
+
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="message-error">
+                @TempData["Error"]
+            </div>
+        }
+
+
+        @if (Model == null || !Model.Any())
+        {
+            <!-- CHƯA CÓ ĐƠN -->
+
+            <div class="empty-orders">
+
+                <div class="empty-icon">
+                    🛍️
+                </div>
+
+                <h2>
+                    Bạn chưa có đơn hàng nào
+                </h2>
+
+                <p>
+                    Hãy chọn sản phẩm và đặt hàng để xem đơn hàng tại đây.
+                </p>
+
+                <a href="@Url.Action("Index", "Product")"
+                   class="btn-shopping">
+
+                    BẮT ĐẦU MUA SẮM
+
+                </a>
+
+            </div>
+        }
+        else
+        {
+            <!-- DANH SÁCH ĐƠN -->
+
+            <div class="order-box">
+
+                <table class="order-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Mã đơn
+                            </th>
+
+                            <th class="hide-mobile">
+                                Ngày đặt
+                            </th>
+
+                            <th>
+                                Tổng tiền
+                            </th>
+
+                            <th>
+                                Trạng thái
+                            </th>
+
+                            <th>
+                                Chi tiết
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        @foreach (var order in Model)
+                        {
+                            string statusClass = "status-pending";
+
+                            if (order.Status == "Confirmed")
+                            {
+                                statusClass = "status-confirmed";
+                            }
+                            else if (order.Status == "Shipping")
+                            {
+                                statusClass = "status-shipping";
+                            }
+                            else if (order.Status == "Completed")
+                            {
+                                statusClass = "status-completed";
+                            }
+                            else if (order.Status == "Cancelled")
+                            {
+                                statusClass = "status-cancelled";
+                            }
+
+
+                            <tr>
+
+                                <td class="order-id">
+
+                                    #@order.OrderId
+
+                                </td>
+
+
+                                <td class="hide-mobile">
+
+                                    @order.CreatedAt.ToString("dd/MM/yyyy HH:mm")
+
+                                </td>
+
+
+                                <td class="order-price">
+
+                                    @order.TotalAmount.ToString("N0")đ
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="status @statusClass">
+
+                                        @if (order.Status == "Pending")
+                                        {
+                                            @:Chờ xử lý
+                                        }
+                                        else if (order.Status == "Confirmed")
+                                        {
+                                            @:Đã xác nhận
+                                        }
+                                        else if (order.Status == "Shipping")
+                                        {
+                                            @:Đang giao
+                                        }
+                                        else if (order.Status == "Completed")
+                                        {
+                                            @:Hoàn thành
+                                        }
+                                        else if (order.Status == "Cancelled")
+                                        {
+                                            @:Đã hủy
+                                        }
+                                        else
+                                        {
+                                            @order.Status
+                                        }
+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <a href="@Url.Action("Details", "Order", new { id = order.OrderId })"
+                                       class="btn-detail">
+
+                                        Xem
+
+                                    </a>
+
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        }
+
+    </div>
+
+</div>

@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Web.Mvc;
 using ThienThaiShop.Models;
 
@@ -8,10 +8,25 @@ namespace ThienThaiShop.Controllers
     {
         private readonly ThienThaiDbContext db = new ThienThaiDbContext();
 
+        // =========================================================
+        // KIỂM TRA ĐĂNG NHẬP
+        // =========================================================
+        private bool IsLoggedIn()
+        {
+            return Session["UserId"] != null;
+        }
 
-        // ==================================================
-        // TỰ ĐỘNG TẠO SIZE S, M, L, XL, 2XL
-        // ==================================================
+        // =========================================================
+        // LẤY USER ID
+        // =========================================================
+        private int GetUserId()
+        {
+            return (int)Session["UserId"];
+        }
+
+        // =========================================================
+        // TỰ ĐỘNG TẠO SIZE
+        // =========================================================
         private void EnsureSizes()
         {
             string[] defaultSizes =
@@ -22,6 +37,8 @@ namespace ThienThaiShop.Controllers
                 "XL",
                 "2XL"
             };
+
+            bool changed = false;
 
             foreach (var sizeName in defaultSizes)
             {
@@ -34,56 +51,71 @@ namespace ThienThaiShop.Controllers
                     {
                         Name = sizeName
                     });
+
+                    changed = true;
                 }
             }
 
-            db.SaveChanges();
+            if (changed)
+            {
+                db.SaveChanges();
+            }
         }
 
-
-        // ==================================================
+        // =========================================================
         // XEM GIỎ HÀNG
-        // ==================================================
+        // =========================================================
+        [HttpGet]
         public ActionResult Index()
         {
             EnsureSizes();
 
-            if (Session["UserId"] == null)
+            if (!IsLoggedIn())
             {
                 return RedirectToAction("Login", "Account");
             }
 
-            int userId = (int)Session["UserId"];
+            int userId = GetUserId();
 
             var cart = db.Carts
                 .FirstOrDefault(c => c.UserId == userId);
 
+            // Nếu chưa có giỏ hàng
             if (cart == null)
             {
-                return View(new Cart());
+                return View(new Cart
+                {
+                    UserId = userId
+                });
             }
 
-            cart.CartItems = db.CartItems
+            // Lấy danh sách sản phẩm trong giỏ
+            var cartItems = db.CartItems
                 .Where(c => c.CartId == cart.CartId)
                 .ToList();
 
-            foreach (var item in cart.CartItems)
+            // Load Product + Size
+            foreach (var item in cartItems)
             {
                 item.Product = db.Products
-                    .FirstOrDefault(p => p.ProductId == item.ProductId);
+                    .FirstOrDefault(p =>
+                        p.ProductId == item.ProductId);
 
                 item.Size = db.Sizes
-                    .FirstOrDefault(s => s.SizeId == item.SizeId);
+                    .FirstOrDefault(s =>
+                        s.SizeId == item.SizeId);
             }
+
+            cart.CartItems = cartItems;
 
             return View(cart);
         }
 
-
-        // ==================================================
+        // =========================================================
         // THÊM SẢN PHẨM VÀO GIỎ
-        // ==================================================
+        // =========================================================
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddToCart(
             int productId,
             int sizeId,
@@ -91,13 +123,18 @@ namespace ThienThaiShop.Controllers
         {
             EnsureSizes();
 
-            if (Session["UserId"] == null)
+            if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction(
+                    "Login",
+                    "Account");
             }
 
-            int userId = (int)Session["UserId"];
+            int userId = GetUserId();
 
+            // -----------------------------------------------------
+            // KIỂM TRA SẢN PHẨM
+            // -----------------------------------------------------
             var product = db.Products
                 .FirstOrDefault(p =>
                     p.ProductId == productId &&
@@ -105,22 +142,50 @@ namespace ThienThaiShop.Controllers
 
             if (product == null)
             {
-                return HttpNotFound();
+                TempData["Error"] =
+                    "Sản phẩm không tồn tại hoặc đã ngừng bán.";
+
+                return RedirectToAction(
+                    "Index",
+                    "Product");
             }
 
-            // Kiểm tra size có tồn tại không
+            // -----------------------------------------------------
+            // KIỂM TRA SIZE
+            // -----------------------------------------------------
             var size = db.Sizes
-                .FirstOrDefault(s => s.SizeId == sizeId);
+                .FirstOrDefault(s =>
+                    s.SizeId == sizeId);
 
             if (size == null)
             {
-                TempData["Error"] = "Size không hợp lệ.";
+                TempData["Error"] =
+                    "Size sản phẩm không hợp lệ.";
 
                 return RedirectToAction(
                     "Details",
                     "Product",
-                    new { id = productId }
-                );
+                    new
+                    {
+                        id = productId
+                    });
+            }
+
+            // -----------------------------------------------------
+            // KIỂM TRA SỐ LƯỢNG
+            // -----------------------------------------------------
+            if (product.Stock <= 0)
+            {
+                TempData["Error"] =
+                    "Sản phẩm hiện đã hết hàng.";
+
+                return RedirectToAction(
+                    "Details",
+                    "Product",
+                    new
+                    {
+                        id = productId
+                    });
             }
 
             if (quantity < 1)
@@ -133,10 +198,12 @@ namespace ThienThaiShop.Controllers
                 quantity = product.Stock;
             }
 
-
+            // -----------------------------------------------------
             // TÌM HOẶC TẠO GIỎ HÀNG
+            // -----------------------------------------------------
             var cart = db.Carts
-                .FirstOrDefault(c => c.UserId == userId);
+                .FirstOrDefault(c =>
+                    c.UserId == userId);
 
             if (cart == null)
             {
@@ -150,17 +217,18 @@ namespace ThienThaiShop.Controllers
                 db.SaveChanges();
             }
 
-
-            // KIỂM TRA SẢN PHẨM + SIZE
+            // -----------------------------------------------------
+            // KIỂM TRA SẢN PHẨM + SIZE ĐÃ CÓ TRONG GIỎ CHƯA
+            // -----------------------------------------------------
             var cartItem = db.CartItems
                 .FirstOrDefault(c =>
                     c.CartId == cart.CartId &&
                     c.ProductId == productId &&
                     c.SizeId == sizeId);
 
-
             if (cartItem != null)
             {
+                // Đã có -> cộng số lượng
                 cartItem.Quantity += quantity;
 
                 if (cartItem.Quantity > product.Stock)
@@ -170,6 +238,7 @@ namespace ThienThaiShop.Controllers
             }
             else
             {
+                // Chưa có -> tạo mới
                 cartItem = new CartItem
                 {
                     CartId = cart.CartId,
@@ -183,31 +252,39 @@ namespace ThienThaiShop.Controllers
 
             db.SaveChanges();
 
+            TempData["Success"] =
+                "Đã thêm sản phẩm vào giỏ hàng.";
+
             return RedirectToAction("Index");
         }
 
-
-        // ==================================================
+        // =========================================================
         // CẬP NHẬT SỐ LƯỢNG
-        // ==================================================
+        // =========================================================
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult UpdateQuantity(
             int cartItemId,
             int quantity)
         {
-            if (Session["UserId"] == null)
+            if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction(
+                    "Login",
+                    "Account");
             }
 
-            if (quantity < 1)
-            {
-                quantity = 1;
-            }
+            int userId = GetUserId();
 
-            var cartItem = db.CartItems
-                .FirstOrDefault(c =>
-                    c.CartItemId == cartItemId);
+            // Chỉ được sửa item thuộc giỏ của chính mình
+            var cartItem = (
+                from item in db.CartItems
+                join cart in db.Carts
+                    on item.CartId equals cart.CartId
+                where item.CartItemId == cartItemId
+                      && cart.UserId == userId
+                select item
+            ).FirstOrDefault();
 
             if (cartItem == null)
             {
@@ -218,34 +295,60 @@ namespace ThienThaiShop.Controllers
                 .FirstOrDefault(p =>
                     p.ProductId == cartItem.ProductId);
 
-            if (product != null &&
-                quantity > product.Stock)
+            if (product == null)
             {
-                quantity = product.Stock;
+                return HttpNotFound();
             }
 
-            cartItem.Quantity = quantity;
+            if (product.Stock <= 0)
+            {
+                cartItem.Quantity = 0;
+            }
+            else
+            {
+                if (quantity < 1)
+                {
+                    quantity = 1;
+                }
+
+                if (quantity > product.Stock)
+                {
+                    quantity = product.Stock;
+                }
+
+                cartItem.Quantity = quantity;
+            }
 
             db.SaveChanges();
 
             return RedirectToAction("Index");
         }
 
-
-        // ==================================================
-        // XÓA SẢN PHẨM KHỎI GIỎ
-        // ==================================================
+        // =========================================================
+        // XÓA MỘT SẢN PHẨM
+        // =========================================================
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Remove(int cartItemId)
         {
-            if (Session["UserId"] == null)
+            if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction(
+                    "Login",
+                    "Account");
             }
 
-            var cartItem = db.CartItems
-                .FirstOrDefault(c =>
-                    c.CartItemId == cartItemId);
+            int userId = GetUserId();
+
+            // Chỉ xóa item thuộc giỏ của user hiện tại
+            var cartItem = (
+                from item in db.CartItems
+                join cart in db.Carts
+                    on item.CartId equals cart.CartId
+                where item.CartItemId == cartItemId
+                      && cart.UserId == userId
+                select item
+            ).FirstOrDefault();
 
             if (cartItem == null)
             {
@@ -256,22 +359,27 @@ namespace ThienThaiShop.Controllers
 
             db.SaveChanges();
 
+            TempData["Success"] =
+                "Đã xóa sản phẩm khỏi giỏ hàng.";
+
             return RedirectToAction("Index");
         }
 
-
-        // ==================================================
+        // =========================================================
         // XÓA TOÀN BỘ GIỎ HÀNG
-        // ==================================================
+        // =========================================================
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Clear()
         {
-            if (Session["UserId"] == null)
+            if (!IsLoggedIn())
             {
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction(
+                    "Login",
+                    "Account");
             }
 
-            int userId = (int)Session["UserId"];
+            int userId = GetUserId();
 
             var cart = db.Carts
                 .FirstOrDefault(c =>
@@ -284,18 +392,79 @@ namespace ThienThaiShop.Controllers
                         c.CartId == cart.CartId)
                     .ToList();
 
-                db.CartItems.RemoveRange(items);
+                if (items.Any())
+                {
+                    db.CartItems.RemoveRange(items);
 
-                db.SaveChanges();
+                    db.SaveChanges();
+                }
             }
+
+            TempData["Success"] =
+                "Đã xóa toàn bộ giỏ hàng.";
 
             return RedirectToAction("Index");
         }
 
+        // =========================================================
+        // ĐI ĐẾN TRANG THANH TOÁN
+        // =========================================================
+        [HttpGet]
+        public ActionResult Checkout()
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction(
+                    "Login",
+                    "Account");
+            }
 
-        // ==================================================
+            int userId = GetUserId();
+
+            var cart = db.Carts
+                .FirstOrDefault(c =>
+                    c.UserId == userId);
+
+            if (cart == null)
+            {
+                TempData["Error"] =
+                    "Giỏ hàng đang trống.";
+
+                return RedirectToAction("Index");
+            }
+
+            var items = db.CartItems
+                .Where(c =>
+                    c.CartId == cart.CartId)
+                .ToList();
+
+            if (!items.Any())
+            {
+                TempData["Error"] =
+                    "Giỏ hàng đang trống.";
+
+                return RedirectToAction("Index");
+            }
+
+            foreach (var item in items)
+            {
+                item.Product = db.Products
+                    .FirstOrDefault(p =>
+                        p.ProductId == item.ProductId);
+
+                item.Size = db.Sizes
+                    .FirstOrDefault(s =>
+                        s.SizeId == item.SizeId);
+            }
+
+            cart.CartItems = items;
+
+            return View(cart);
+        }
+
+        // =========================================================
         // GIẢI PHÓNG DATABASE
-        // ==================================================
+        // =========================================================
         protected override void Dispose(bool disposing)
         {
             if (disposing)

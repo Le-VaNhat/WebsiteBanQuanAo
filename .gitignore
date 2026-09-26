@@ -1,0 +1,11 @@
+﻿.vs/
+bin/
+obj/
+*.user
+*.suo
+*.pdb
+*.cache
+*.vsidx
+
+App_Data/*.mdf
+App_Data/*.ldf

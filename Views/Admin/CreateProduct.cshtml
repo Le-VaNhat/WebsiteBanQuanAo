@@ -1,0 +1,242 @@
+﻿@model ThienThaiShop.Models.Product
+
+@{
+    ViewBag.Title = "Thêm sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var categories =
+        ViewBag.Categories as List<ThienThaiShop.Models.Category>;
+}
+
+<style>
+    .admin-page {
+        padding: 40px 0;
+        background: #f5f5f5;
+        min-height: 80vh;
+    }
+
+    .form-box {
+        max-width: 750px;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 3px 12px rgba(0,0,0,.08);
+    }
+
+        .form-box h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .text-danger {
+        color: #d9534f;
+        font-size: 13px;
+    }
+
+    .buttons {
+        margin-top: 25px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 6px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .btn-save {
+        background: #222;
+        color: white;
+    }
+
+    .btn-back {
+        background: #eee;
+        color: #333;
+    }
+</style>
+
+
+<div class="admin-page">
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <h2>Thêm sản phẩm</h2>
+
+
+            @using (Html.BeginForm(
+                "CreateProduct",
+                "Admin",
+                FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+
+                <div class="form-group">
+
+                    <label>Tên sản phẩm</label>
+
+                    @Html.TextBoxFor(
+                        m => m.Name,
+                        new
+                        {
+                            @class = "form-control",
+                            placeholder = "Nhập tên sản phẩm"
+                        })
+
+                    @Html.ValidationMessageFor(
+                        m => m.Name,
+                        "",
+                        new { @class = "text-danger" })
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Mô tả</label>
+
+                    @Html.TextAreaFor(
+                        m => m.Description,
+                        new
+                        {
+                            @class = "form-control",
+                            placeholder = "Nhập mô tả sản phẩm"
+                        })
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Giá</label>
+
+                    @Html.TextBoxFor(
+                        m => m.Price,
+                        new
+                        {
+                            @class = "form-control",
+                            type = "number",
+                            min = "0",
+                            step = "1000"
+                        })
+
+                    @Html.ValidationMessageFor(
+                        m => m.Price,
+                        "",
+                        new { @class = "text-danger" })
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Tồn kho</label>
+
+                    @Html.TextBoxFor(
+                        m => m.Stock,
+                        new
+                        {
+                            @class = "form-control",
+                            type = "number",
+                            min = "0"
+                        })
+
+                    @Html.ValidationMessageFor(
+                        m => m.Stock,
+                        "",
+                        new { @class = "text-danger" })
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Danh mục</label>
+
+                    <select name="CategoryId"
+                            class="form-control">
+
+                        <option value="">
+                            -- Chọn danh mục --
+                        </option>
+
+                        @if (categories != null)
+                        {
+                            foreach (var category in categories)
+                            {
+                                <option value="@category.CategoryId">
+                                    @category.Name
+                                </option>
+                            }
+                        }
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Đường dẫn hình ảnh</label>
+
+                    @Html.TextBoxFor(
+                        m => m.ImageUrl,
+                        new
+                        {
+                            @class = "form-control",
+                            placeholder = "/Content/Images/ten-anh.jpg"
+                        })
+
+                </div>
+
+
+                <div class="buttons">
+
+                    <button type="submit"
+                            class="btn btn-save">
+                        Thêm sản phẩm
+                    </button>
+
+                    <a href="@Url.Action("Products", "Admin")"
+                       class="btn btn-back">
+                        Hủy
+                    </a>
+
+                </div>
+
+            }
+
+        </div>
+
+    </div>
+
+</div>

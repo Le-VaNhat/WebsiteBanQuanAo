@@ -1,0 +1,544 @@
+@using System.Linq
+@model ThienThaiShop.Models.Order
+
+@{
+    ViewBag.Title = "Chi tiết đơn hàng - Thiên Thai Shop";
+
+    decimal total = Model.TotalAmount;
+}
+
+<style>
+
+    .order-detail-page {
+        background: #f7f7f7;
+        min-height: 100vh;
+        padding-bottom: 70px;
+    }
+
+    .detail-header {
+        background: #111;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+        .detail-header h1 {
+            margin: 0 0 10px;
+        }
+
+        .detail-header p {
+            color: #ccc;
+            margin: 0;
+        }
+
+    .detail-container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 40px 15px;
+    }
+
+    .message-success {
+        background: #e8f7e8;
+        color: #267326;
+        padding: 14px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .message-error {
+        background: #ffe5e5;
+        color: #c92532;
+        padding: 14px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .detail-layout {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 25px;
+        align-items: start;
+    }
+
+    .detail-box {
+        background: white;
+        padding: 25px;
+        border-radius: 6px;
+        box-shadow: 0 3px 12px rgba(0,0,0,.07);
+        margin-bottom: 20px;
+    }
+
+        .detail-box h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+    .product-item {
+        display: grid;
+        grid-template-columns: 80px 1fr auto;
+        gap: 15px;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+        .product-item:last-child {
+            border-bottom: none;
+        }
+
+    .product-image {
+        width: 80px;
+        height: 95px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .product-name {
+        font-weight: bold;
+        margin-bottom: 7px;
+    }
+
+    .product-info {
+        color: #777;
+        font-size: 14px;
+    }
+
+    .product-price {
+        color: #e63946;
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .info-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+    .info-label {
+        color: #777;
+    }
+
+    .info-value {
+        text-align: right;
+        font-weight: bold;
+    }
+
+    .total-row {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        font-size: 21px;
+        font-weight: bold;
+    }
+
+        .total-row span:last-child {
+            color: #e63946;
+        }
+
+    .btn-back {
+        display: inline-block;
+        padding: 11px 18px;
+        background: #111;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+        .btn-back:hover {
+            background: #e63946;
+            color: white;
+            text-decoration: none;
+        }
+
+    .btn-cancel {
+        width: 100%;
+        margin-top: 15px;
+        padding: 12px;
+        background: white;
+        border: 1px solid #e63946;
+        color: #e63946;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+        .btn-cancel:hover {
+            background: #e63946;
+            color: white;
+        }
+
+    .status {
+        display: inline-block;
+        padding: 7px 14px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    .status-pending {
+        background: #fff3cd;
+        color: #856404;
+    }
+
+    .status-confirmed {
+        background: #d1ecf1;
+        color: #0c5460;
+    }
+
+    .status-shipping {
+        background: #cce5ff;
+        color: #004085;
+    }
+
+    .status-completed {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    .status-cancelled {
+        background: #f8d7da;
+        color: #721c24;
+    }
+
+    @@media (max-width: 800px) {
+
+        .detail-layout {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @@media (max-width: 550px) {
+
+        .product-item {
+            grid-template-columns: 65px 1fr;
+        }
+
+        .product-image {
+            width: 65px;
+            height: 80px;
+        }
+
+        .product-price {
+            grid-column: 2;
+            text-align: left;
+        }
+
+        .info-row {
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .info-value {
+            text-align: left;
+        }
+    }
+</style>
+
+
+<div class="order-detail-page">
+
+    <div class="detail-header">
+
+        <h1>
+            CHI TIẾT ĐƠN HÀNG #@Model.OrderId
+        </h1>
+
+        <p>
+            Thông tin chi tiết đơn hàng của bạn
+        </p>
+
+    </div>
+
+
+    <div class="detail-container">
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="message-success">
+                @TempData["Success"]
+            </div>
+        }
+
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="message-error">
+                @TempData["Error"]
+            </div>
+        }
+
+
+        <div class="detail-layout">
+
+
+            <!-- SẢN PHẨM -->
+
+            <div>
+
+                <div class="detail-box">
+
+                    <h2>
+                        Sản phẩm
+                    </h2>
+
+
+                    @foreach (var detail in Model.OrderDetails)
+                    {
+                        if (detail.Product != null)
+                        {
+                            <div class="product-item">
+
+                                <img class="product-image"
+                                     src="@(string.IsNullOrEmpty(detail.Product.ImageUrl)
+                                        ? "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80"
+                                        : detail.Product.ImageUrl)"
+                                     alt="@detail.Product.Name" />
+
+
+                                <div>
+
+                                    <div class="product-name">
+                                        @detail.Product.Name
+                                    </div>
+
+
+                                    <div class="product-info">
+
+                                        Size:
+                                        @(detail.Size != null
+                                            ? detail.Size.Name
+                                            : "N/A")
+                                        × @detail.Quantity
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="product-price">
+
+                                    @((detail.UnitPrice * detail.Quantity)
+                                        .ToString("N0"))đ
+
+                                </div>
+
+                            </div>
+                        }
+                    }
+
+
+                    <div class="total-row">
+
+                        <span>
+                            Tổng cộng
+                        </span>
+
+                        <span>
+                            @total.ToString("N0")đ
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a href="@Url.Action("Index", "Order")"
+                   class="btn-back">
+
+                    ← Quay lại đơn hàng
+
+                </a>
+
+            </div>
+
+
+            <!-- THÔNG TIN -->
+
+            <div>
+
+                <div class="detail-box">
+
+                    <h2>
+                        Thông tin đơn hàng
+                    </h2>
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Mã đơn hàng
+                        </span>
+
+                        <span class="info-value">
+                            #@Model.OrderId
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Ngày đặt
+                        </span>
+
+                        <span class="info-value">
+                            @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Trạng thái
+                        </span>
+
+                        <span class="info-value">
+
+                            @{
+                                string statusClass = "status-pending";
+
+                                if (Model.Status == "Confirmed")
+                                {
+                                    statusClass = "status-confirmed";
+                                }
+                                else if (Model.Status == "Shipping")
+                                {
+                                    statusClass = "status-shipping";
+                                }
+                                else if (Model.Status == "Completed")
+                                {
+                                    statusClass = "status-completed";
+                                }
+                                else if (Model.Status == "Cancelled")
+                                {
+                                    statusClass = "status-cancelled";
+                                }
+                            }
+
+                            <span class="status @statusClass">
+
+                                @if (Model.Status == "Pending")
+                                {
+                                    @:Chờ xử lý
+                                }
+                                else if (Model.Status == "Confirmed")
+                                {
+                                    @:Đã xác nhận
+                                }
+                                else if (Model.Status == "Shipping")
+                                {
+                                    @:Đang giao
+                                }
+                                else if (Model.Status == "Completed")
+                                {
+                                    @:Hoàn thành
+                                }
+                                else if (Model.Status == "Cancelled")
+                                {
+                                    @:Đã hủy
+                                }
+                                else
+                                {
+                                    @Model.Status
+                                }
+
+                            </span>
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Thanh toán
+                        </span>
+
+                        <span class="info-value">
+
+                            @(Model.PaymentMethod == "COD"
+                                ? "Thanh toán khi nhận hàng"
+                                : "Chuyển khoản ngân hàng")
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <h2>
+                        Giao hàng
+                    </h2>
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Số điện thoại
+                        </span>
+
+                        <span class="info-value">
+                            @Model.Phone
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <span class="info-label">
+                            Địa chỉ
+                        </span>
+
+                        <span class="info-value">
+                            @Model.ShippingAddress
+                        </span>
+
+                    </div>
+
+
+                    @if (Model.Status == "Pending")
+                    {
+                        <form method="post"
+                              action="@Url.Action("Cancel", "Order")">
+
+                            @Html.AntiForgeryToken()
+
+                            <input type="hidden"
+                                   name="id"
+                                   value="@Model.OrderId" />
+
+                            <button type="submit"
+                                    class="btn-cancel"
+                                    onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này không?');">
+
+                                HỦY ĐƠN HÀNG
+
+                            </button>
+
+                        </form>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

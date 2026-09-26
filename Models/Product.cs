@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ThienThaiShop.Models
@@ -27,5 +28,16 @@ namespace ThienThaiShop.Models
 
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
+
+        // =====================================================
+        // TỒN KHO THEO TỪNG SIZE
+        // =====================================================
+
+        public virtual ICollection<ProductSize> ProductSizes { get; set; }
+
+        public Product()
+        {
+            ProductSizes = new HashSet<ProductSize>();
+        }
     }
 }

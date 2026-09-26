@@ -1,4 +1,4 @@
-﻿@using System.Linq
+@using System.Linq
 @using System.Collections.Generic
 @using ThienThaiShop.Models
 
@@ -7,10 +7,33 @@
 
     var products = ViewBag.Products as List<Product>;
     var categories = ViewBag.Categories as List<Category>;
+
+    // =====================================================
+    // 4 DANH MỤC CỐ ĐỊNH CỦA CỬA HÀNG
+    // =====================================================
+
+    var categoryNames = new[]
+    {
+        "Áo nam",
+        "Quần nam",
+        "Áo nữ",
+        "Quần nữ"
+    };
+
+    // =====================================================
+    // ẢNH ĐẠI DIỆN CHO 4 DANH MỤC
+    // =====================================================
+
+    var categoryImages = new[]
+    {
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1506629905607-d9c297d2e7a5?auto=format&fit=crop&w=800&q=80"
+    };
 }
 
 <style>
-
     * {
         box-sizing: border-box;
     }
@@ -22,177 +45,11 @@
         color: #222;
     }
 
-
-    /* =====================================================
-       HEADER
-    ===================================================== */
-
-    .tt-header {
-        background: #111;
-        color: white;
-        padding: 0;
-    }
-
-    .tt-header-inner {
-        max-width: 1200px;
-        margin: auto;
-        height: 75px;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        gap: 30px;
-        padding: 0 15px;
-    }
-
-    .logo {
-        font-size: 28px;
-        font-weight: bold;
-        color: white;
-        text-decoration: none;
-        letter-spacing: 1px;
-        white-space: nowrap;
-    }
-
-    .logo span {
-        color: #e63946;
-    }
-
-    .menu {
-        display: flex;
-        gap: 25px;
-        align-items: center;
-    }
-
-    .menu a {
-        color: white;
-        text-decoration: none;
-        font-size: 15px;
-        transition: .2s;
-    }
-
-    .menu a:hover {
-        color: #e63946;
-    }
-
-
-    /* =====================================================
-       HEADER ICONS
-    ===================================================== */
-
-    .header-icons {
-        display: flex;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .header-icons a {
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        cursor: pointer;
-        transition: .2s;
-
-        display: flex;
-        align-items: center;
-    }
-
-    .header-icons a:hover {
-        color: #e63946;
-    }
-
-    .user-name {
-        font-size: 13px;
-        margin-left: 5px;
-        max-width: 110px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-
-    /* =====================================================
-       SEARCH BAR
-    ===================================================== */
-
-    .home-search {
-        display: none;
-        background: #fff;
-        padding: 15px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .home-search.active {
-        display: block;
-    }
-
-    .home-search-form {
-        max-width: 1200px;
-        margin: auto;
-
-        display: flex;
-        gap: 10px;
-
-        padding: 0 15px;
-    }
-
-    .home-search-form input {
-        flex: 1;
-
-        height: 45px;
-
-        border: 1px solid #ddd;
-        border-radius: 5px;
-
-        padding: 0 15px;
-
-        font-size: 15px;
-        outline: none;
-    }
-
-    .home-search-form input:focus {
-        border-color: #111;
-    }
-
-    .home-search-form button {
-        height: 45px;
-
-        padding: 0 25px;
-
-        border: none;
-        background: #111;
-        color: white;
-
-        border-radius: 5px;
-
-        cursor: pointer;
-        font-weight: bold;
-
-        transition: .2s;
-    }
-
-    .home-search-form button:hover {
-        background: #e63946;
-    }
-
-
-    /* =====================================================
-       HERO
-    ===================================================== */
+    /* ================= HERO ================= */
 
     .hero {
         min-height: 500px;
-
-        background:
-            linear-gradient(
-                90deg,
-                rgba(0,0,0,.7),
-                rgba(0,0,0,.15)
-            ),
-            url('@Url.Content("~/Content/images/banner.jpg")')
-            center/cover;
-
+        background: linear-gradient(90deg, rgba(0,0,0,.7), rgba(0,0,0,.15)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=80') center / cover;
         display: flex;
         align-items: center;
     }
@@ -201,54 +58,45 @@
         width: 1200px;
         max-width: 90%;
         margin: auto;
-
         color: white;
     }
 
-    .hero-content h1 {
-        font-size: 55px;
-        margin: 0 0 15px;
-        font-weight: 700;
-    }
+        .hero-content h1 {
+            font-size: 55px;
+            margin: 0 0 15px;
+            font-weight: 700;
+        }
 
-    .hero-content p {
-        font-size: 20px;
-        max-width: 550px;
-        line-height: 1.6;
-        margin-bottom: 30px;
-    }
+        .hero-content p {
+            font-size: 20px;
+            max-width: 550px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
 
     .btn-shop {
         display: inline-block;
-
         padding: 15px 32px;
-
         background: #e63946;
         color: white;
-
         text-decoration: none;
         font-weight: bold;
-
         border-radius: 4px;
-
         transition: .2s;
     }
 
-    .btn-shop:hover {
-        background: #c92532;
-        color: white;
-        text-decoration: none;
-    }
+        .btn-shop:hover {
+            background: #c92532;
+            color: white;
+            text-decoration: none;
+        }
 
 
-    /* =====================================================
-       CONTAINER
-    ===================================================== */
+    /* ================= CONTAINER ================= */
 
     .container-tt {
         max-width: 1200px;
         margin: auto;
-
         padding: 60px 15px;
     }
 
@@ -257,19 +105,17 @@
         margin-bottom: 40px;
     }
 
-    .section-title h2 {
-        font-size: 32px;
-        margin-bottom: 10px;
-    }
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
 
-    .section-title p {
-        color: #777;
-    }
+        .section-title p {
+            color: #777;
+        }
 
 
-    /* =====================================================
-       DANH MỤC
-    ===================================================== */
+    /* ================= DANH MỤC ================= */
 
     .categories {
         display: grid;
@@ -278,98 +124,73 @@
     }
 
     .category {
-        height: 300px;
-
+        height: 260px;
         position: relative;
         overflow: hidden;
-
         border-radius: 8px;
-
         cursor: pointer;
-
         display: block;
-
+        box-shadow: 0 4px 15px rgba(0,0,0,.1);
         background: #ddd;
-
         text-decoration: none;
     }
 
-    .category img {
-        width: 100%;
-        height: 100%;
+        .category img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: .4s;
+        }
 
-        object-fit: cover;
+        .category:hover img {
+            transform: scale(1.08);
+        }
 
-        display: block;
-
-        transition: .4s;
-    }
-
-    .category:hover img {
-        transform: scale(1.08);
+    .category-overlay {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 55%;
+        background: linear-gradient( transparent, rgba(0,0,0,.85) );
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
     }
 
     .category-title {
-        position: absolute;
-
-        bottom: 0;
-        left: 0;
-        right: 0;
-
-        padding: 22px 20px;
-
-        background:
-            linear-gradient(
-                transparent,
-                rgba(0,0,0,.85)
-            );
-
         color: white;
-
         font-size: 22px;
         font-weight: bold;
     }
 
 
-    /* =====================================================
-       PRODUCTS
-    ===================================================== */
+    /* ================= SẢN PHẨM ================= */
 
     .products {
         display: grid;
-
-        grid-template-columns:
-            repeat(4, 1fr);
-
+        grid-template-columns: repeat(4, 1fr);
         gap: 25px;
     }
 
     .product {
         background: white;
-
         border-radius: 6px;
-
         overflow: hidden;
-
-        box-shadow:
-            0 3px 12px rgba(0,0,0,.08);
-
+        box-shadow: 0 3px 12px rgba(0,0,0,.08);
         transition: .25s;
     }
 
-    .product:hover {
-        transform: translateY(-5px);
-
-        box-shadow:
-            0 8px 25px rgba(0,0,0,.15);
-    }
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,.15);
+        }
 
     .product-img {
         width: 100%;
         height: 330px;
-
         object-fit: cover;
-
         display: block;
     }
 
@@ -377,240 +198,149 @@
         padding: 18px;
     }
 
+    .product-category {
+        color: #888;
+        font-size: 13px;
+        margin-bottom: 7px;
+    }
+
     .product-name {
         font-size: 17px;
         font-weight: bold;
-
         margin-bottom: 10px;
-
         min-height: 40px;
+    }
+
+    .product-description {
+        color: #777;
+        font-size: 13px;
+        line-height: 1.5;
+        height: 40px;
+        overflow: hidden;
+        margin-bottom: 12px;
     }
 
     .product-price {
         color: #e63946;
-
         font-size: 18px;
         font-weight: bold;
     }
 
+    .product-stock {
+        margin-top: 12px;
+        color: #777;
+        font-size: 13px;
+    }
+
+        .product-stock strong {
+            color: #222;
+        }
+
     .product-btn {
         display: block;
-
         margin-top: 15px;
-
         padding: 10px;
-
         text-align: center;
-
         border: 1px solid #222;
-
         color: #222;
-
         text-decoration: none;
-
         border-radius: 4px;
-
         transition: .2s;
+        font-weight: bold;
     }
 
-    .product-btn:hover {
-        background: #111;
-        color: white;
-
-        text-decoration: none;
-    }
+        .product-btn:hover {
+            background: #111;
+            color: white;
+            text-decoration: none;
+        }
 
     .empty-products {
         grid-column: 1 / -1;
-
         background: white;
-
         padding: 50px;
-
         text-align: center;
-
         border-radius: 6px;
     }
 
-    .empty-products h3 {
-        margin-bottom: 10px;
-    }
+        .empty-products h3 {
+            margin-bottom: 10px;
+        }
 
-    .empty-products p {
-        color: #777;
-    }
+        .empty-products p {
+            color: #777;
+        }
 
 
-    /* =====================================================
-       SALE BANNER
-    ===================================================== */
+    /* ================= BANNER ================= */
 
     .banner {
         margin-top: 20px;
-
-        background:
-            linear-gradient(
-                90deg,
-                rgba(0,0,0,.75),
-                rgba(0,0,0,.1)
-            ),
-            url('@Url.Content("~/Content/images/sale-banner.jpg")')
-            center/cover;
-
+        background: linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.1)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1800&q=80') center / cover;
         min-height: 300px;
-
         display: flex;
         align-items: center;
-
         padding: 50px;
-
         color: white;
+        border-radius: 8px;
     }
 
-    .banner h2 {
-        font-size: 38px;
-        margin-bottom: 15px;
-    }
+        .banner h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
 
-    .banner p {
-        font-size: 17px;
-        margin-bottom: 25px;
-    }
+        .banner p {
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
 
 
-    /* =====================================================
-       FEATURES
-    ===================================================== */
+    /* ================= ƯU ĐIỂM ================= */
 
     .features {
         display: grid;
-
-        grid-template-columns:
-            repeat(4, 1fr);
-
+        grid-template-columns: repeat(4, 1fr);
         gap: 20px;
-
         margin-top: 30px;
     }
 
     .feature {
         background: white;
-
         text-align: center;
-
         padding: 30px 20px;
-
         border-radius: 6px;
+        box-shadow: 0 3px 12px rgba(0,0,0,.05);
     }
 
     .feature-icon {
         font-size: 35px;
-
         margin-bottom: 15px;
     }
 
     .feature h3 {
         font-size: 17px;
-
         margin-bottom: 8px;
     }
 
     .feature p {
         color: #777;
-
         font-size: 14px;
     }
 
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-
-    .tt-footer {
-        background: #111;
-
-        color: white;
-
-        padding: 45px 0 20px;
-
-        margin-top: 40px;
-    }
-
-    .footer-grid {
-        max-width: 1200px;
-
-        margin: auto;
-
-        display: grid;
-
-        grid-template-columns:
-            2fr 1fr 1fr 1fr;
-
-        gap: 40px;
-
-        padding: 0 15px;
-    }
-
-    .footer-grid h3 {
-        margin-bottom: 18px;
-    }
-
-    .footer-grid p,
-    .footer-grid a {
-        color: #bbb;
-
-        font-size: 14px;
-
-        line-height: 1.8;
-
-        text-decoration: none;
-    }
-
-    .footer-grid a:hover {
-        color: white;
-    }
-
-    .footer-bottom {
-        max-width: 1200px;
-
-        margin: 30px auto 0;
-
-        padding: 20px 15px 0;
-
-        border-top: 1px solid #333;
-
-        color: #888;
-
-        font-size: 13px;
-
-        text-align: center;
-    }
-
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
+    /* ================= RESPONSIVE ================= */
 
     @@media (max-width: 900px) {
 
         .categories,
         .products,
         .features {
-            grid-template-columns:
-                repeat(2, 1fr);
-        }
-
-        .menu {
-            display: none;
+            grid-template-columns: repeat(2, 1fr);
         }
 
         .hero-content h1 {
             font-size: 40px;
-        }
-
-        .footer-grid {
-            grid-template-columns:
-                1fr 1fr;
         }
     }
 
@@ -621,18 +351,6 @@
         .products,
         .features {
             grid-template-columns: 1fr;
-        }
-
-        .footer-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .home-search-form {
-            flex-direction: column;
-        }
-
-        .home-search-form button {
-            width: 100%;
         }
 
         .hero {
@@ -648,197 +366,36 @@
         }
 
         .banner {
-            padding: 30px 20px;
+            padding: 30px;
         }
 
-        .banner h2 {
-            font-size: 28px;
-        }
+            .banner h2 {
+                font-size: 28px;
+            }
     }
-
 </style>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
-<header class="tt-header">
-
-    <div class="tt-header-inner">
-
-
-        <!-- LOGO -->
-
-        <a href="@Url.Action("Index", "Home")"
-           class="logo">
-
-            THIÊN THAI<span>.</span>
-
-        </a>
-
-
-        <!-- MENU -->
-
-        <nav class="menu">
-
-            <a href="@Url.Action("Index", "Home")">
-                Trang chủ
-            </a>
-
-            <a href="@Url.Action("Index", "Product")">
-                Sản phẩm
-            </a>
-
-            <a href="@Url.Action("BestSeller", "Product")">
-                Bán chạy
-            </a>
-
-            <a href="@Url.Action("Contact", "Home")">
-                Liên hệ
-            </a>
-
-        </nav>
-
-
-        <!-- HEADER ICONS -->
-
-        <div class="header-icons">
-
-
-            <!-- SEARCH -->
-
-            <a href="javascript:void(0)"
-               id="searchToggle"
-               title="Tìm kiếm">
-
-                🔍
-
-            </a>
-
-
-            @if (Session["UserId"] == null)
-            {
-
-                <!-- =================================================
-                     CHƯA ĐĂNG NHẬP
-                ================================================== -->
-
-                <a href="@Url.Action("Login", "Account")"
-                   title="Đăng nhập">
-
-                    👤
-
-                </a>
-
-            }
-            else
-            {
-
-                <!-- =================================================
-                     ĐÃ ĐĂNG NHẬP
-                ================================================== -->
-
-                <a href="@Url.Action("Profile", "Account")"
-                   title="Tài khoản">
-
-                    👤
-
-                    <span class="user-name">
-                        @Session["FullName"]
-                    </span>
-
-                </a>
-
-
-                <!-- ĐĂNG XUẤT -->
-
-                <a href="@Url.Action("Logout", "Account")"
-                   title="Đăng xuất">
-
-                    ⎋
-
-                </a>
-
-            }
-
-
-            <!-- GIỎ HÀNG -->
-
-            <a href="@Url.Action("Index", "Cart")"
-               title="Giỏ hàng">
-
-                🛒
-
-            </a>
-
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- =====================================================
-     SEARCH
-===================================================== -->
-
-<div class="home-search"
-     id="homeSearch">
-
-    <form class="home-search-form"
-          action="@Url.Action("Index", "Product")"
-          method="get">
-
-
-        <input type="text"
-               name="search"
-               placeholder="Nhập tên quần áo bạn muốn tìm..."
-               id="homeSearchInput"
-               autocomplete="off" />
-
-
-        <button type="submit">
-
-            TÌM KIẾM
-
-        </button>
-
-    </form>
-
-</div>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
     <div class="hero-content">
 
-
         <h1>
-
             THỜI TRANG THIÊN THAI
-
         </h1>
 
-
         <p>
-
             Khám phá bộ sưu tập thời trang mới nhất.
             Phong cách hiện đại, chất lượng cao và phù hợp
             với mọi cá tính.
-
         </p>
-
 
         <a href="@Url.Action("Index", "Product")"
            class="btn-shop">
 
-            MUA SẮM NGAY →
+            MUA SẮM NGAY
 
         </a>
 
@@ -847,12 +404,9 @@
 </section>
 
 
-<!-- =====================================================
-     DANH MỤC SẢN PHẨM
-===================================================== -->
+<!-- ================= DANH MỤC ================= -->
 
 <section class="container-tt">
-
 
     <div class="section-title">
 
@@ -869,130 +423,121 @@
 
     <div class="categories">
 
-
-        <!-- =================================================
-             ÁO NAM
-        ================================================== -->
+        <!-- ================= ÁO NAM ================= -->
 
         <a href="@Url.Action(
                     "Index",
                     "Product",
-                    new { category = "Áo nam" }
+                    new
+                    {
+                        category = "Áo nam"
+                    }
                  )"
            class="category">
 
-
-            <img src="@Url.Content(
-                        "~/Content/Images/Products/AoNam/aonam4.jpg"
-                     )"
+            <img src="@categoryImages[0]"
                  alt="Áo nam"
-                 onerror="this.onerror=null;this.src='@Url.Content("~/Content/Images/no-image.jpg")';">
+                 onerror="this.onerror=null;this.style.display='none';" />
 
+            <div class="category-overlay">
 
-            <div class="category-title">
-
-                Áo nam
+                <div class="category-title">
+                    Áo nam
+                </div>
 
             </div>
 
         </a>
 
 
-        <!-- =================================================
-             ÁO KHOÁC
-        ================================================== -->
+        <!-- ================= QUẦN NAM ================= -->
 
         <a href="@Url.Action(
                     "Index",
                     "Product",
-                    new { category = "Áo khoác" }
+                    new
+                    {
+                        category = "Quần nam"
+                    }
                  )"
            class="category">
 
+            <img src="@categoryImages[1]"
+                 alt="Quần nam"
+                 onerror="this.onerror=null;this.style.display='none';" />
 
-            <img src="@Url.Content(
-                        "~/Content/Images/Products/Aokhoac/aokhoac1.jpg"
-                     )"
-                 alt="Áo khoác"
-                 onerror="this.onerror=null;this.src='@Url.Content("~/Content/Images/no-image.jpg")';">
+            <div class="category-overlay">
 
-
-            <div class="category-title">
-
-                Áo khoác
+                <div class="category-title">
+                    Quần nam
+                </div>
 
             </div>
 
         </a>
 
 
-        <!-- =================================================
-             QUẦN
-        ================================================== -->
+        <!-- ================= ÁO NỮ ================= -->
 
         <a href="@Url.Action(
                     "Index",
                     "Product",
-                    new { category = "Quần" }
+                    new
+                    {
+                        category = "Áo nữ"
+                    }
                  )"
            class="category">
 
+            <img src="@categoryImages[2]"
+                 alt="Áo nữ"
+                 onerror="this.onerror=null;this.style.display='none';" />
 
-            <img src="@Url.Content(
-                        "~/Content/Images/Products/Quan/quan2.jpg"
-                     )"
-                 alt="Quần"
-                 onerror="this.onerror=null;this.src='@Url.Content("~/Content/Images/no-image.jpg")';">
+            <div class="category-overlay">
 
-
-            <div class="category-title">
-
-                Quần
+                <div class="category-title">
+                    Áo nữ
+                </div>
 
             </div>
 
         </a>
 
 
-        <!-- =================================================
-             ĐỒ NỮ
-        ================================================== -->
+        <!-- ================= QUẦN NỮ ================= -->
 
         <a href="@Url.Action(
                     "Index",
                     "Product",
-                    new { category = "Thời trang nữ" }
+                    new
+                    {
+                        category = "Quần nữ"
+                    }
                  )"
            class="category">
 
+            <img src="@categoryImages[3]"
+                 alt="Quần nữ"
+                 onerror="this.onerror=null;this.style.display='none';" />
 
-            <img src="@Url.Content(
-                        "~/Content/Images/Products/DoNu/donu3.jpg"
-                     )"
-                 alt="Đồ nữ"
-                 onerror="this.onerror=null;this.src='@Url.Content("~/Content/Images/no-image.jpg")';">
+            <div class="category-overlay">
 
-
-            <div class="category-title">
-
-                Đồ nữ
+                <div class="category-title">
+                    Quần nữ
+                </div>
 
             </div>
 
         </a>
-
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     SẢN PHẨM NỔI BẬT
-===================================================== -->
+<!-- ================= SẢN PHẨM NỔI BẬT ================= -->
 
 <section class="container-tt">
-
 
     <div class="section-title">
 
@@ -1009,50 +554,96 @@
 
     <div class="products">
 
-
         @if (products != null && products.Any())
         {
-
             foreach (var product in products)
             {
-
                 <div class="product">
 
+                    <!-- ================= ẢNH SẢN PHẨM ================= -->
 
-                    <!-- HÌNH SẢN PHẨM -->
-
-                    <img class="product-img"
-                         src="@(
-                            string.IsNullOrEmpty(product.ImageUrl)
-                            ? Url.Content("~/Content/Images/no-image.jpg")
-                            : product.ImageUrl
-                         )"
-                         alt="@product.Name"
-                         onerror="this.onerror=null;this.src='@Url.Content("~/Content/Images/no-image.jpg")';">
+                    @if (!string.IsNullOrEmpty(product.ImageUrl))
+                    {
+                        <img class="product-img"
+                             src="@product.ImageUrl"
+                             alt="@product.Name"
+                             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80';" />
+                    }
+                    else
+                    {
+                        <img class="product-img"
+                             src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+                             alt="@product.Name" />
+                    }
 
 
                     <div class="product-info">
 
+                        <!-- ================= DANH MỤC ================= -->
 
-                        <!-- TÊN -->
+                        <div class="product-category">
 
-                        <div class="product-name">
-
-                            @product.Name
+                            @if (product.Category != null &&
+                                categoryNames.Contains(product.Category.Name))
+                            {
+                                @product.Category.Name
+                            }
+                            else
+                            {
+                                <span>
+                                    Thời trang
+                                </span>
+                            }
 
                         </div>
 
 
-                        <!-- GIÁ -->
+                        <!-- ================= TÊN SẢN PHẨM ================= -->
 
-                        <span class="product-price">
-
-                            @product.Price.ToString("N0")₫
-
-                        </span>
+                        <div class="product-name">
+                            @product.Name
+                        </div>
 
 
-                        <!-- CHI TIẾT -->
+                        <!-- ================= MÔ TẢ ================= -->
+
+                        <div class="product-description">
+
+                            @if (!string.IsNullOrEmpty(product.Description))
+                            {
+                                @product.Description
+                            }
+                            else
+                            {
+                                <span>
+                                    Sản phẩm thời trang Thiên Thai.
+                                </span>
+                            }
+
+                        </div>
+
+
+                        <!-- ================= GIÁ ================= -->
+
+                        <div class="product-price">
+                            @product.Price.ToString("N0") đ
+                        </div>
+
+
+                        <!-- ================= SỐ LƯỢNG ================= -->
+
+                        <div class="product-stock">
+
+                            Số lượng:
+
+                            <strong>
+                                @product.Stock
+                            </strong>
+
+                        </div>
+
+
+                        <!-- ================= XEM CHI TIẾT ================= -->
 
                         <a href="@Url.Action(
                                     "Details",
@@ -1064,37 +655,28 @@
                                  )"
                            class="product-btn">
 
-                            Xem sản phẩm
+                            XEM CHI TIẾT →
 
                         </a>
 
                     </div>
 
                 </div>
-
             }
-
         }
         else
         {
-
             <div class="empty-products">
 
                 <h3>
-
                     Chưa có sản phẩm
-
                 </h3>
 
                 <p>
-
-                    Hiện tại chưa có sản phẩm nào
-                    trong hệ thống.
-
+                    Hiện tại chưa có sản phẩm nào trong hệ thống.
                 </p>
 
             </div>
-
         }
 
     </div>
@@ -1102,31 +684,22 @@
 </section>
 
 
-<!-- =====================================================
-     BANNER SALE
-===================================================== -->
+<!-- ================= BANNER ================= -->
 
 <section class="container-tt">
 
     <div class="banner">
 
-
         <div>
 
             <h2>
-
                 BỘ SƯU TẬP MỚI 2026
-
             </h2>
 
-
             <p>
-
                 Cập nhật xu hướng thời trang mới nhất.
                 Ưu đãi hấp dẫn dành cho khách hàng Thiên Thai.
-
             </p>
-
 
             <a href="@Url.Action("Index", "Product")"
                class="btn-shop">
@@ -1142,34 +715,24 @@
 </section>
 
 
-<!-- =====================================================
-     ƯU ĐIỂM
-===================================================== -->
+<!-- ================= ƯU ĐIỂM ================= -->
 
 <section class="container-tt">
 
-
     <div class="features">
 
-
         <div class="feature">
 
             <div class="feature-icon">
-
                 🚚
-
             </div>
 
             <h3>
-
                 Giao hàng nhanh
-
             </h3>
 
             <p>
-
                 Giao hàng toàn quốc
-
             </p>
 
         </div>
@@ -1178,21 +741,15 @@
         <div class="feature">
 
             <div class="feature-icon">
-
                 💳
-
             </div>
 
             <h3>
-
                 Thanh toán an toàn
-
             </h3>
 
             <p>
-
                 Nhiều phương thức thanh toán
-
             </p>
 
         </div>
@@ -1201,21 +758,15 @@
         <div class="feature">
 
             <div class="feature-icon">
-
                 🔄
-
             </div>
 
             <h3>
-
                 Đổi trả dễ dàng
-
             </h3>
 
             <p>
-
                 Hỗ trợ đổi trả sản phẩm
-
             </p>
 
         </div>
@@ -1224,275 +775,19 @@
         <div class="feature">
 
             <div class="feature-icon">
-
-                ☎️
-
+                📞
             </div>
 
             <h3>
-
                 Hỗ trợ 24/7
-
             </h3>
 
             <p>
-
                 Luôn sẵn sàng hỗ trợ khách hàng
-
             </p>
 
         </div>
-
 
     </div>
 
 </section>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="tt-footer">
-
-
-    <div class="footer-grid">
-
-
-        <!-- GIỚI THIỆU -->
-
-        <div>
-
-            <h3>
-
-                THIÊN THAI SHOP
-
-            </h3>
-
-            <p>
-
-                Website bán quần áo thời trang Thiên Thai.
-                Cung cấp các sản phẩm thời trang nam nữ
-                chất lượng với giá hợp lý.
-
-            </p>
-
-        </div>
-
-
-        <!-- THÔNG TIN -->
-
-        <div>
-
-            <h3>
-
-                Thông tin
-
-            </h3>
-
-
-            <p>
-
-                <a href="@Url.Action("About", "Home")">
-
-                    Về chúng tôi
-
-                </a>
-
-            </p>
-
-
-            <p>
-
-                <a href="#">
-
-                    Chính sách bảo mật
-
-                </a>
-
-            </p>
-
-
-            <p>
-
-                <a href="#">
-
-                    Điều khoản sử dụng
-
-                </a>
-
-            </p>
-
-        </div>
-
-
-        <!-- HỖ TRỢ -->
-
-        <div>
-
-            <h3>
-
-                Hỗ trợ
-
-            </h3>
-
-
-            <p>
-
-                <a href="#">
-
-                    Hướng dẫn mua hàng
-
-                </a>
-
-            </p>
-
-
-            <p>
-
-                <a href="#">
-
-                    Chính sách đổi trả
-
-                </a>
-
-            </p>
-
-
-            <p>
-
-                <a href="#">
-
-                    Câu hỏi thường gặp
-
-                </a>
-
-            </p>
-
-        </div>
-
-
-        <!-- LIÊN HỆ -->
-
-        <div>
-
-            <h3>
-
-                Liên hệ
-
-            </h3>
-
-
-            <p>
-
-                📍 Hà Nội, Việt Nam
-
-            </p>
-
-
-            <p>
-
-                ☎ 0123 456 789
-
-            </p>
-
-
-            <p>
-
-                ✉ contact@thienthai.vn
-
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        © 2026 Thiên Thai Shop.
-        All rights reserved.
-
-    </div>
-
-</footer>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script>
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        function () {
-
-
-            /* =================================================
-               SEARCH
-            ================================================= */
-
-            var searchToggle =
-                document.getElementById(
-                    "searchToggle"
-                );
-
-
-            var homeSearch =
-                document.getElementById(
-                    "homeSearch"
-                );
-
-
-            var homeSearchInput =
-                document.getElementById(
-                    "homeSearchInput"
-                );
-
-
-            if (
-                searchToggle &&
-                homeSearch &&
-                homeSearchInput
-            ) {
-
-
-                searchToggle.addEventListener(
-                    "click",
-                    function () {
-
-
-                        homeSearch.classList.toggle(
-                            "active"
-                        );
-
-
-                        if (
-                            homeSearch.classList.contains(
-                                "active"
-                            )
-                        ) {
-
-
-                            setTimeout(
-                                function () {
-
-                                    homeSearchInput.focus();
-
-                                },
-                                100
-                            );
-
-                        }
-
-                    }
-                );
-
-            }
-
-        }
-    );
-
-</script>

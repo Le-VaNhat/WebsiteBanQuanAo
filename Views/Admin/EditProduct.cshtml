@@ -1,0 +1,470 @@
+﻿@using System
+@using System.Collections.Generic
+@using System.Globalization
+@using ThienThaiShop.Models
+
+@model ThienThaiShop.Models.Product
+
+@{
+    ViewBag.Title = "Sửa sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var categories =
+        ViewBag.Categories as List<ThienThaiShop.Models.Category>;
+
+    int stockS = ViewBag.Stock_S != null ? (int)ViewBag.Stock_S : 0;
+    int stockM = ViewBag.Stock_M != null ? (int)ViewBag.Stock_M : 0;
+    int stockL = ViewBag.Stock_L != null ? (int)ViewBag.Stock_L : 0;
+    int stockXL = ViewBag.Stock_XL != null ? (int)ViewBag.Stock_XL : 0;
+    int stock2XL = ViewBag.Stock_2XL != null ? (int)ViewBag.Stock_2XL : 0;
+
+    string priceValue =
+        Model.Price.ToString("0.##", CultureInfo.InvariantCulture);
+}
+
+<style>
+    .edit-page {
+        min-height: 85vh;
+        background: #f5f5f5;
+        padding: 40px 15px;
+    }
+
+    .edit-box {
+        max-width: 850px;
+        margin: 0 auto;
+        background: white;
+        padding: 35px;
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    }
+
+    .edit-title {
+        margin: 0 0 30px 0;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+    .form-control {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 14px;
+        border: 1px solid #ddd;
+        border-radius: 7px;
+        font-size: 15px;
+    }
+
+    textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .stock-box {
+        margin-top: 30px;
+        padding: 25px;
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+    }
+
+    .stock-title {
+        font-size: 21px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .stock-description {
+        color: #777;
+        margin-bottom: 22px;
+    }
+
+    .size-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
+    }
+
+    .size-item {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .size-name {
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .size-input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    .stock-total {
+        margin-top: 20px;
+        padding: 15px 20px;
+        background: #fff7e6;
+        border: 1px solid #ffd591;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: right;
+    }
+
+        .stock-total span {
+            color: #d48806;
+            font-size: 23px;
+        }
+
+    .button-row {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 7px;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .btn-back {
+        background: #222;
+        color: white;
+    }
+
+    .btn-save {
+        background: #5cb85c;
+        color: white;
+    }
+
+    .btn:hover {
+        opacity: .9;
+        text-decoration: none;
+        color: white;
+    }
+
+    .validation-summary {
+        margin-bottom: 20px;
+        padding: 12px 15px;
+        background: #f2dede;
+        color: #a94442;
+        border-radius: 7px;
+    }
+
+    .current-price-note {
+        margin-top: 6px;
+        color: #777;
+        font-size: 13px;
+    }
+
+    @@media (max-width: 700px) {
+        .edit-box {
+            padding: 22px;
+        }
+
+        .size-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .button-row {
+            flex-direction: column;
+        }
+
+        .btn {
+            text-align: center;
+        }
+    }
+</style>
+
+<div class="edit-page">
+    <div class="edit-box">
+
+        <h1 class="edit-title">✏️ Sửa sản phẩm</h1>
+
+        @using (Html.BeginForm(
+            "EditProduct",
+            "Admin",
+            FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <input type="hidden"
+                   name="ProductId"
+                   value="@Model.ProductId" />
+
+            @Html.ValidationSummary(
+                     true,
+                     "",
+                     new { @class = "validation-summary" })
+
+            <div class="form-group">
+                <label>Tên sản phẩm</label>
+
+                <input type="text"
+                       name="Name"
+                       class="form-control"
+                       value="@Model.Name"
+                       placeholder="Nhập tên sản phẩm..." />
+
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+
+            <div class="form-group">
+                <label>Danh mục</label>
+
+                <select name="CategoryId"
+                        class="form-control">
+
+                    @if (categories != null)
+                    {
+                        foreach (var category in categories)
+                        {
+                            <option value="@category.CategoryId"
+                                    @(Model.CategoryId == category.CategoryId ? "selected=\"selected\"" : "")>
+                                @category.Name
+                            </option>
+                        }
+                    }
+                </select>
+
+                @Html.ValidationMessageFor(m => m.CategoryId)
+            </div>
+
+            <div class="form-group">
+                <label>Giá sản phẩm</label>
+
+                <!--
+                    Luôn hiển thị giá hiện tại.
+                    Không sửa giá thì cứ giữ nguyên giá này.
+                    Muốn đổi thì nhập giá mới.
+                -->
+                <input type="number"
+                       name="Price"
+                       class="form-control"
+                       value="@priceValue"
+                       min="0"
+                       step="1000"
+                       required />
+
+                <div class="current-price-note">
+                    Giá hiện tại:
+                    <strong>
+                        @String.Format("{0:N0} đ", Model.Price)
+                    </strong>
+                    — Nếu không muốn đổi giá, cứ để nguyên số này.
+                </div>
+
+                @Html.ValidationMessageFor(m => m.Price)
+            </div>
+
+            <div class="form-group">
+                <label>Mô tả</label>
+
+                <textarea name="Description"
+                          class="form-control"
+                          placeholder="Nhập mô tả sản phẩm...">@Model.Description</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Link ảnh sản phẩm</label>
+
+                <input type="text"
+                       name="ImageUrl"
+                       class="form-control"
+                       value="@Model.ImageUrl"
+                       placeholder="https://..." />
+            </div>
+
+            <div class="stock-box">
+
+                <div class="stock-title">
+                    📦 Tồn kho theo từng Size
+                </div>
+
+                <div class="stock-description">
+                    Nhập số lượng hàng hiện có của từng Size.
+                    Khi nhập thêm hàng, chỉ cần sửa số lượng ở đây rồi bấm
+                    <strong>Lưu thay đổi</strong>.
+                </div>
+
+                <div class="size-grid">
+
+                    <div class="size-item">
+                        <span class="size-name">S</span>
+                        <input type="number"
+                               name="stockS"
+                               id="stockS"
+                               class="size-input"
+                               value="@stockS"
+                               min="0"
+                               step="1"
+                               required
+                               oninput="calculateTotal()" />
+                    </div>
+
+                    <div class="size-item">
+                        <span class="size-name">M</span>
+                        <input type="number"
+                               name="stockM"
+                               id="stockM"
+                               class="size-input"
+                               value="@stockM"
+                               min="0"
+                               step="1"
+                               required
+                               oninput="calculateTotal()" />
+                    </div>
+
+                    <div class="size-item">
+                        <span class="size-name">L</span>
+                        <input type="number"
+                               name="stockL"
+                               id="stockL"
+                               class="size-input"
+                               value="@stockL"
+                               min="0"
+                               step="1"
+                               required
+                               oninput="calculateTotal()" />
+                    </div>
+
+                    <div class="size-item">
+                        <span class="size-name">XL</span>
+                        <input type="number"
+                               name="stockXL"
+                               id="stockXL"
+                               class="size-input"
+                               value="@stockXL"
+                               min="0"
+                               step="1"
+                               required
+                               oninput="calculateTotal()" />
+                    </div>
+
+                    <div class="size-item">
+                        <span class="size-name">2XL</span>
+                        <input type="number"
+                               name="stock2XL"
+                               id="stock2XL"
+                               class="size-input"
+                               value="@stock2XL"
+                               min="0"
+                               step="1"
+                               required
+                               oninput="calculateTotal()" />
+                    </div>
+
+                </div>
+
+                <div class="stock-total">
+                    Tổng tồn kho:
+                    <span id="totalStock">0</span>
+                    sản phẩm
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top:25px;">
+                <label>Trạng thái</label>
+
+                <select name="IsActive"
+                        class="form-control">
+
+                    @if (Model.IsActive)
+                    {
+                        <option value="true" selected="selected">
+                            Đang bán
+                        </option>
+                        <option value="false">
+                            Đã tắt
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="true">
+                            Đang bán
+                        </option>
+                        <option value="false" selected="selected">
+                            Đã tắt
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <div class="button-row">
+
+                <a href="@Url.Action("Products", "Admin")"
+                   class="btn btn-back">
+                    ← Quay lại
+                </a>
+
+                <button type="submit"
+                        class="btn btn-save">
+                    💾 Lưu thay đổi
+                </button>
+
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    function getNumber(id) {
+        var element = document.getElementById(id);
+
+        if (!element) {
+            return 0;
+        }
+
+        var value = parseInt(element.value);
+
+        if (isNaN(value) || value < 0) {
+            return 0;
+        }
+
+        return value;
+    }
+
+    function calculateTotal() {
+        var total =
+            getNumber("stockS") +
+            getNumber("stockM") +
+            getNumber("stockL") +
+            getNumber("stockXL") +
+            getNumber("stock2XL");
+
+        document.getElementById("totalStock").innerText = total;
+    }
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+            calculateTotal();
+        }
+    );
+</script>

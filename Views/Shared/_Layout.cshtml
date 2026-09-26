@@ -3,37 +3,1172 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <title>@ViewBag.Title - Thiên Thai Shop</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f8f8;
+            color: #222;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .tt-header {
+            width: 100%;
+            background: #111;
+            color: white;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tt-header-inner {
+            max-width: 1200px;
+            min-height: 75px;
+            margin: auto;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            transition: .2s;
+        }
+
+            .logo span {
+                color: #e63946;
+            }
+
+            .logo:hover {
+                color: white;
+                text-decoration: none;
+            }
+
+
+        /* =====================================================
+           MENU
+        ===================================================== */
+
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            flex: 1;
+        }
+
+            .menu a {
+                color: white;
+                text-decoration: none;
+                font-size: 15px;
+                white-space: nowrap;
+                transition: .2s;
+            }
+
+                .menu a:hover {
+                    color: #e63946;
+                    text-decoration: none;
+                }
+
+
+        /* =====================================================
+           HEADER ICONS
+        ===================================================== */
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            white-space: nowrap;
+        }
+
+            .header-icons a {
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                transition: .2s;
+            }
+
+                .header-icons a:hover {
+                    color: #e63946;
+                    text-decoration: none;
+                }
+
+
+        /* =====================================================
+           USER NAME
+        ===================================================== */
+
+        .user-name {
+            font-size: 13px;
+            margin-left: 5px;
+            max-width: 110px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+
+        /* =====================================================
+           ĐƠN HÀNG
+        ===================================================== */
+
+        .order-link {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+
+        .order-text {
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+
+        .home-search {
+            display: none;
+            background: white;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+            .home-search.active {
+                display: block;
+            }
+
+        .home-search-form {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+            .home-search-form input {
+                flex: 1;
+                height: 45px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 0 15px;
+                font-size: 15px;
+                outline: none;
+            }
+
+                .home-search-form input:focus {
+                    border-color: #111;
+                }
+
+            .home-search-form button {
+                height: 45px;
+                padding: 0 25px;
+                border: none;
+                border-radius: 5px;
+                background: #111;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+                transition: .2s;
+            }
+
+                .home-search-form button:hover {
+                    background: #e63946;
+                }
+
+
+        /* =====================================================
+           BODY
+        ===================================================== */
+
+        .body-content {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @@media (max-width: 1100px) {
+
+            .tt-header-inner {
+                gap: 15px;
+            }
+
+            .menu {
+                gap: 15px;
+            }
+
+                .menu a {
+                    font-size: 14px;
+                }
+
+            .header-icons {
+                gap: 10px;
+            }
+        }
+
+
+        @@media (max-width: 900px) {
+
+            .menu {
+                display: none;
+            }
+
+            .tt-header-inner {
+                min-height: 70px;
+            }
+
+            .order-text {
+                display: none;
+            }
+        }
+
+
+        @@media (max-width: 600px) {
+
+            .tt-header-inner {
+                padding: 0 12px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .header-icons {
+                gap: 10px;
+            }
+
+            .user-name {
+                display: none;
+            }
+
+            .home-search-form {
+                flex-direction: column;
+            }
+
+                .home-search-form button {
+                    width: 100%;
+                }
+        }
+
+        /* =====================================================
+           THIÊN THAI - CHATBOT TƯ VẤN
+        ===================================================== */
+
+        .tt-chatbot-toggle {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 62px;
+            height: 62px;
+            border: none;
+            border-radius: 50%;
+            background: #e63946;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 9998;
+            box-shadow: 0 8px 25px rgba(0,0,0,.25);
+            transition: .2s;
+        }
+
+            .tt-chatbot-toggle:hover {
+                transform: translateY(-3px) scale(1.03);
+                background: #c92f3b;
+            }
+
+            .tt-chatbot-toggle .tt-chat-badge {
+                position: absolute;
+                top: -2px;
+                right: -2px;
+                width: 17px;
+                height: 17px;
+                border-radius: 50%;
+                background: #20c997;
+                border: 2px solid white;
+            }
+
+        .tt-chatbot {
+            position: fixed;
+            right: 24px;
+            bottom: 96px;
+            width: 380px;
+            max-width: calc(100vw - 30px);
+            height: 560px;
+            max-height: calc(100vh - 120px);
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            z-index: 9999;
+            box-shadow: 0 15px 50px rgba(0,0,0,.28);
+            display: none;
+            flex-direction: column;
+            border: 1px solid #e5e5e5;
+        }
+
+            .tt-chatbot.open {
+                display: flex;
+                animation: ttChatOpen .2s ease-out;
+            }
+
+        @@keyframes ttChatOpen {
+            from {
+                opacity: 0;
+                transform: translateY(15px) scale(.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .tt-chat-header {
+            background: #111;
+            color: white;
+            padding: 15px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .tt-chat-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tt-chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e63946;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+        }
+
+        .tt-chat-title {
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .tt-chat-status {
+            font-size: 11px;
+            color: #a8e6cf;
+            margin-top: 2px;
+        }
+
+        .tt-chat-close {
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .tt-chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background: #f6f6f6;
+        }
+
+        .tt-chat-message {
+            display: flex;
+            margin-bottom: 11px;
+        }
+
+            .tt-chat-message.bot {
+                justify-content: flex-start;
+            }
+
+            .tt-chat-message.user {
+                justify-content: flex-end;
+            }
+
+        .tt-chat-bubble {
+            max-width: 86%;
+            padding: 10px 12px;
+            border-radius: 14px;
+            font-size: 13px;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        .tt-chat-message.bot .tt-chat-bubble {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-top-left-radius: 4px;
+        }
+
+        .tt-chat-message.user .tt-chat-bubble {
+            background: #111;
+            color: white;
+            border-top-right-radius: 4px;
+        }
+
+        .tt-chat-quick {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 9px;
+        }
+
+            .tt-chat-quick button {
+                border: 1px solid #ddd;
+                background: white;
+                border-radius: 18px;
+                padding: 7px 10px;
+                font-size: 12px;
+                cursor: pointer;
+                transition: .2s;
+            }
+
+                .tt-chat-quick button:hover {
+                    border-color: #e63946;
+                    color: #e63946;
+                }
+
+        .tt-chat-products {
+            display: grid;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tt-chat-product {
+            display: flex;
+            gap: 9px;
+            padding: 8px;
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+        }
+
+        .tt-chat-product-image {
+            width: 55px;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 7px;
+            background: #f1f1f1;
+            flex-shrink: 0;
+        }
+
+        .tt-chat-product-info {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .tt-chat-product-name {
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 1.35;
+            margin-bottom: 3px;
+        }
+
+        .tt-chat-product-category {
+            font-size: 11px;
+            color: #777;
+        }
+
+        .tt-chat-product-price {
+            font-size: 12px;
+            color: #e63946;
+            font-weight: bold;
+            margin: 3px 0;
+        }
+
+        .tt-chat-product-stock {
+            font-size: 11px;
+            color: #555;
+        }
+
+        .tt-chat-product-link {
+            display: inline-block;
+            margin-top: 5px;
+            color: #111;
+            font-size: 11px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+            .tt-chat-product-link:hover {
+                color: #e63946;
+            }
+
+        .tt-chat-typing {
+            display: none;
+            padding: 0 15px 8px;
+            background: #f6f6f6;
+            font-size: 11px;
+            color: #777;
+        }
+
+            .tt-chat-typing.show {
+                display: block;
+            }
+
+        .tt-chat-input-area {
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background: white;
+            flex-shrink: 0;
+        }
+
+        .tt-chat-form {
+            display: flex;
+            gap: 7px;
+        }
+
+        .tt-chat-input {
+            flex: 1;
+            height: 42px;
+            border: 1px solid #ddd;
+            border-radius: 21px;
+            padding: 0 15px;
+            outline: none;
+            font-size: 13px;
+        }
+
+            .tt-chat-input:focus {
+                border-color: #111;
+            }
+
+        .tt-chat-send {
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: #e63946;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+            .tt-chat-send:disabled {
+                opacity: .5;
+                cursor: not-allowed;
+            }
+
+        @@media (max-width: 600px) {
+            .tt-chatbot {
+                right: 10px;
+                bottom: 82px;
+                width: calc(100vw - 20px);
+                height: min(560px, calc(100vh - 100px));
+            }
+
+            .tt-chatbot-toggle {
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+    </style>
 </head>
+
+
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+
+
+    <!-- =====================================================
+         HEADER DÙNG CHUNG CHO TẤT CẢ TRANG
+    ===================================================== -->
+
+    <header class="tt-header">
+
+        <div class="tt-header-inner">
+
+
+            <!-- LOGO -->
+
+            <a href="@Url.Action("Index", "Home")"
+               class="logo">
+
+                THIÊN THAI<span>.</span>
+
+            </a>
+
+
+            <!-- =================================================
+                 MENU CHÍNH
+            ================================================== -->
+
+            <nav class="menu">
+
+                <a href="@Url.Action("Index", "Home")">
+                    🏠 Trang chủ
+                </a>
+
+                <a href="@Url.Action("Index", "Product")">
+                    👕 Sản phẩm
+                </a>
+
+                <a href="@Url.Action("BestSeller", "Product")">
+                    🔥 Bán chạy
+                </a>
+
+                <a href="@Url.Action("About", "Home")">
+                    ℹ️ About
+                </a>
+
+                <a href="@Url.Action("Contact", "Home")">
+                    ☎️ Liên hệ
+                </a>
+
+            </nav>
+
+
+            <!-- =================================================
+                 ICON BÊN PHẢI
+            ================================================== -->
+
+            <div class="header-icons">
+
+
+                <!-- TÌM KIẾM -->
+
+                <a href="javascript:void(0)"
+                   id="layoutSearchToggle"
+                   title="Tìm kiếm">
+
+                    🔍
+
+                </a>
+
+
+                @if (Session["UserId"] == null)
+                {
+
+                    <!-- =================================================
+                         CHƯA ĐĂNG NHẬP
+                    ================================================== -->
+
+                    <a href="@Url.Action("Login", "Account")"
+                       title="Đăng nhập">
+
+                        👤
+
+                    </a>
+
+                }
+                else
+                {
+
+                    <!-- =================================================
+                         TÀI KHOẢN
+                    ================================================== -->
+
+                    <a href="@Url.Action("Profile", "Account")"
+                       title="Tài khoản">
+
+                        👤
+
+                        <span class="user-name">
+                            @Session["FullName"]
+                        </span>
+
+                    </a>
+
+
+                    <!-- =================================================
+                         ĐƠN HÀNG CỦA TÔI
+                    ================================================== -->
+
+                    <a href="@Url.Action("Index", "Order")"
+                       class="order-link"
+                       title="Đơn hàng của tôi">
+
+                        📦
+
+                        <span class="order-text">
+                            Đơn hàng
+                        </span>
+
+                    </a>
+
+
+                    <!-- =================================================
+                         ĐĂNG XUẤT
+                    ================================================== -->
+
+                    <a href="@Url.Action("Logout", "Account")"
+                       title="Đăng xuất">
+
+                        ⎋
+
+                    </a>
+
+                }
+
+
+                <!-- =================================================
+                     GIỎ HÀNG
+                ================================================== -->
+
+                <a href="@Url.Action("Index", "Cart")"
+                   title="Giỏ hàng">
+
+                    🛒
+
+                    <span class="order-text">
+                        Giỏ hàng
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         THANH TÌM KIẾM
+    ===================================================== -->
+
+    <div class="home-search"
+         id="layoutSearch">
+
+        <form class="home-search-form"
+              action="@Url.Action("Index", "Product")"
+              method="get">
+
+            <input type="text"
+                   name="search"
+                   id="layoutSearchInput"
+                   placeholder="Nhập tên quần áo bạn muốn tìm..."
+                   autocomplete="off" />
+
+            <button type="submit">
+                TÌM KIẾM
             </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
+
+        </form>
+
+    </div>
+
+
+    <!-- =====================================================
+         NỘI DUNG TỪNG TRANG
+    ===================================================== -->
+
+    <div class="body-content">
+
+        @RenderBody()
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CHATBOT TƯ VẤN THIÊN THAI
+    ===================================================== -->
+
+    <button type="button"
+            id="ttChatToggle"
+            class="tt-chatbot-toggle"
+            title="Tư vấn sản phẩm">
+        💬
+        <span class="tt-chat-badge"></span>
+    </button>
+
+    <div id="ttChatbot" class="tt-chatbot">
+
+        <div class="tt-chat-header">
+            <div class="tt-chat-header-left">
+                <div class="tt-chat-avatar">🤖</div>
+                <div>
+                    <div class="tt-chat-title">Thiên Thai Shop</div>
+                    <div class="tt-chat-status">● Đang tư vấn tự động</div>
+                </div>
+            </div>
+
+            <button type="button"
+                    id="ttChatClose"
+                    class="tt-chat-close"
+                    title="Đóng">
+                ×
+            </button>
+        </div>
+
+        <div id="ttChatMessages" class="tt-chat-messages">
+            <div class="tt-chat-message bot">
+                <div class="tt-chat-bubble">
+                    Xin chào 👋<br />
+                    Mình là trợ lý tư vấn của <strong>Thiên Thai Shop</strong>.
+                    Mình có thể giúp bạn tìm sản phẩm, tư vấn Size,
+                    kiểm tra tồn kho và tìm sản phẩm theo mức giá.
+
+                    <div class="tt-chat-quick">
+                        <button type="button" data-chat="Tư vấn size cho tôi">📏 Tư vấn Size</button>
+                        <button type="button" data-chat="Tìm áo nam">👕 Áo nam</button>
+                        <button type="button" data-chat="Tìm áo nữ">👚 Áo nữ</button>
+                        <button type="button" data-chat="Tìm quần nam">👖 Quần nam</button>
+                        <button type="button" data-chat="Tìm quần nữ">👗 Quần nữ</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+        <div id="ttChatTyping" class="tt-chat-typing">
+            Trợ lý đang tìm thông tin...
+        </div>
+
+        <div class="tt-chat-input-area">
+            <form id="ttChatForm" class="tt-chat-form">
+                <input type="text"
+                       id="ttChatInput"
+                       class="tt-chat-input"
+                       maxlength="500"
+                       autocomplete="off"
+                       placeholder="Hỏi về sản phẩm, giá, Size..." />
+
+                <button type="submit"
+                        id="ttChatSend"
+                        class="tt-chat-send"
+                        title="Gửi">
+                    ➤
+                </button>
+            </form>
+        </div>
+
     </div>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                var searchToggle =
+                    document.getElementById(
+                        "layoutSearchToggle"
+                    );
+
+                var searchBox =
+                    document.getElementById(
+                        "layoutSearch"
+                    );
+
+                var searchInput =
+                    document.getElementById(
+                        "layoutSearchInput"
+                    );
+
+
+                if (
+                    searchToggle &&
+                    searchBox &&
+                    searchInput
+                ) {
+
+                    searchToggle.addEventListener(
+                        "click",
+                        function () {
+
+                            searchBox.classList.toggle(
+                                "active"
+                            );
+
+
+                            if (
+                                searchBox.classList.contains(
+                                    "active"
+                                )
+                            ) {
+
+                                setTimeout(
+                                    function () {
+
+                                        searchInput.focus();
+
+                                    },
+                                    100
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var toggle = document.getElementById("ttChatToggle");
+            var chatbot = document.getElementById("ttChatbot");
+            var close = document.getElementById("ttChatClose");
+            var messages = document.getElementById("ttChatMessages");
+            var form = document.getElementById("ttChatForm");
+            var input = document.getElementById("ttChatInput");
+            var send = document.getElementById("ttChatSend");
+            var typing = document.getElementById("ttChatTyping");
+
+            if (!toggle || !chatbot || !close || !messages || !form || !input || !send) {
+                return;
+            }
+
+            function escapeHtml(text) {
+                if (!text) return "";
+
+                return String(text)
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+            function addMessage(text, type, products) {
+
+                var wrapper = document.createElement("div");
+                wrapper.className = "tt-chat-message " + type;
+
+                var bubble = document.createElement("div");
+                bubble.className = "tt-chat-bubble";
+
+                bubble.innerHTML =
+                    escapeHtml(text || "").replace(/\r?\n/g, "<br />");
+
+                if (products && products.length) {
+
+                    var productBox = document.createElement("div");
+                    productBox.className = "tt-chat-products";
+
+                    products.forEach(function (product) {
+
+                        var card = document.createElement("div");
+                        card.className = "tt-chat-product";
+
+                        var image =
+                            product.ImageUrl
+                                ? '<img class="tt-chat-product-image" src="' +
+                                  escapeHtml(product.ImageUrl) +
+                                  '" alt="' +
+                                  escapeHtml(product.Name) +
+                                  '" onerror="this.style.display=\'none\'" />'
+                                : '<div class="tt-chat-product-image"></div>';
+
+                        var stockText =
+                            product.TotalStock > 0
+                                ? "Còn " + product.TotalStock
+                                : "Hết hàng";
+
+                        card.innerHTML =
+                            image +
+                            '<div class="tt-chat-product-info">' +
+                                '<div class="tt-chat-product-name">' +
+                                    escapeHtml(product.Name) +
+                                '</div>' +
+                                '<div class="tt-chat-product-category">' +
+                                    escapeHtml(product.CategoryName || "") +
+                                '</div>' +
+                                '<div class="tt-chat-product-price">' +
+                                    escapeHtml(product.PriceText || "") +
+                                '</div>' +
+                                '<div class="tt-chat-product-stock">' +
+                                    stockText +
+                                '</div>' +
+                                '<a class="tt-chat-product-link" href="' +
+                                    escapeHtml(product.DetailUrl || "#") +
+                                '">' +
+                                    'Xem sản phẩm →' +
+                                '</a>' +
+                            '</div>';
+
+                        productBox.appendChild(card);
+                    });
+
+                    bubble.appendChild(productBox);
+                }
+
+                wrapper.appendChild(bubble);
+                messages.appendChild(wrapper);
+                messages.scrollTop = messages.scrollHeight;
+            }
+
+            function setLoading(loading) {
+
+                if (typing) {
+                    typing.classList.toggle("show", loading);
+                }
+
+                send.disabled = loading;
+                input.disabled = loading;
+            }
+
+            function sendMessage(text) {
+
+                text = (text || "").trim();
+
+                if (!text || send.disabled) {
+                    return;
+                }
+
+                addMessage(text, "user");
+                input.value = "";
+                setLoading(true);
+
+                var formData = new URLSearchParams();
+                formData.append("message", text);
+
+                fetch('@Url.Action("SendMessage", "Chat")', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                            "application/x-www-form-urlencoded; charset=UTF-8"
+                    },
+                    body: formData.toString()
+                })
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error("HTTP " + response.status);
+                    }
+
+                    return response.json();
+                })
+                .then(function (response) {
+
+                    if (response && response.Success) {
+
+                        addMessage(
+                            response.Message,
+                            "bot",
+                            response.Products || []
+                        );
+
+                    } else {
+
+                        addMessage(
+                            response && response.Message
+                                ? response.Message
+                                : "Xin lỗi, mình chưa xử lý được câu hỏi này.",
+                            "bot"
+                        );
+                    }
+                })
+                .catch(function () {
+
+                    addMessage(
+                        "Không kết nối được với bộ phận tư vấn. " +
+                        "Bạn kiểm tra lại ChatController.cs rồi thử lại nhé.",
+                        "bot"
+                    );
+                })
+                .finally(function () {
+
+                    setLoading(false);
+                    input.focus();
+                });
+            }
+
+            toggle.addEventListener("click", function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                chatbot.classList.toggle("open");
+
+                if (chatbot.classList.contains("open")) {
+                    input.focus();
+                    messages.scrollTop = messages.scrollHeight;
+                }
+            });
+
+            close.addEventListener("click", function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                chatbot.classList.remove("open");
+            });
+
+            form.addEventListener("submit", function (event) {
+
+                event.preventDefault();
+                sendMessage(input.value);
+            });
+
+            input.addEventListener("keydown", function (event) {
+
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    form.dispatchEvent(new Event("submit"));
+                }
+            });
+
+            document.querySelectorAll("[data-chat]").forEach(function (button) {
+
+                button.addEventListener("click", function () {
+                    sendMessage(button.getAttribute("data-chat"));
+                });
+            });
+
+        });
+    </script>
+
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

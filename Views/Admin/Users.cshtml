@@ -1,0 +1,397 @@
+@model IEnumerable<ThienThaiShop.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Quản lý tài khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .admin-page {
+        padding: 40px 0;
+        background: #f5f5f5;
+        min-height: 80vh;
+    }
+
+    .admin-box {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+        .admin-header h2 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+    .back-btn {
+        text-decoration: none;
+        padding: 10px 18px;
+        background: #222;
+        color: #fff;
+        border-radius: 6px;
+    }
+
+        .back-btn:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+    .alert {
+        padding: 12px 15px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    .alert-success {
+        background: #dff0d8;
+        color: #3c763d;
+    }
+
+    .alert-danger {
+        background: #f2dede;
+        color: #a94442;
+    }
+
+    .user-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .user-table th,
+        .user-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+
+        .user-table th {
+            background: #f8f8f8;
+            font-weight: 700;
+        }
+
+    .badge {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 13px;
+    }
+
+    .badge-admin {
+        background: #222;
+        color: white;
+    }
+
+    .badge-customer {
+        background: #eee;
+        color: #333;
+    }
+
+    .badge-active {
+        background: #dff0d8;
+        color: #3c763d;
+    }
+
+    .badge-locked {
+        background: #f2dede;
+        color: #a94442;
+    }
+
+    .action-form {
+        display: inline-block;
+        margin: 2px;
+    }
+
+    .btn {
+        border: none;
+        padding: 7px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 13px;
+    }
+
+    .btn-lock {
+        background: #d9534f;
+        color: white;
+    }
+
+    .btn-unlock {
+        background: #5cb85c;
+        color: white;
+    }
+
+    .role-select {
+        padding: 7px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .btn-role {
+        background: #222;
+        color: white;
+    }
+
+    .current-user {
+        font-weight: 700;
+    }
+
+    @@media (max-width: 900px) {
+        .admin-box {
+            overflow-x: auto;
+        }
+
+        .user-table {
+            min-width: 950px;
+        }
+    }
+</style>
+
+<div class="admin-page">
+
+    <div class="container">
+
+        <div class="admin-box">
+
+            <div class="admin-header">
+
+                <h2>
+                    Quản lý tài khoản
+                </h2>
+
+                <a href="@Url.Action("Index", "Admin")"
+                   class="back-btn">
+                    ← Quay lại Dashboard
+                </a>
+
+            </div>
+
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["Success"]
+                </div>
+            }
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["Error"]
+                </div>
+            }
+
+            <table class="user-table">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Họ tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Quyền</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày tạo</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var user in Model)
+                        {
+                            bool isCurrentUser =
+                                Session["UserId"] != null &&
+                                user.UserId == (int)Session["UserId"];
+
+                            <tr>
+
+                                <td>
+                                    @user.UserId
+                                </td>
+
+                                <td>
+                                    @if (isCurrentUser)
+                                    {
+                                        <span class="current-user">
+                                            @user.FullName (Bạn)
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        @user.FullName
+                                    }
+                                </td>
+
+                                <td>
+                                    @user.Email
+                                </td>
+
+                                <td>
+                                    @(string.IsNullOrEmpty(user.Phone)
+                                        ? "-"
+                                        : user.Phone)
+                                </td>
+
+                                <td>
+                                    @(string.IsNullOrEmpty(user.Address)
+                                        ? "-"
+                                        : user.Address)
+                                </td>
+
+                                <td>
+                                    @if (user.Role == "Admin")
+                                    {
+                                        <span class="badge badge-admin">
+                                            Admin
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-customer">
+                                            Customer
+                                        </span>
+                                    }
+                                </td>
+
+                                <td>
+                                    @if (user.IsActive)
+                                    {
+                                        <span class="badge badge-active">
+                                            Đang hoạt động
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-locked">
+                                            Đã khóa
+                                        </span>
+                                    }
+                                </td>
+
+                                <td>
+                                    @user.CreatedAt.ToString("dd/MM/yyyy")
+                                </td>
+
+                                <td>
+
+                                    @if (!isCurrentUser)
+                                    {
+                                        <!-- KHÓA / MỞ KHÓA -->
+
+                                        using (Html.BeginForm(
+                                            "ToggleUser",
+                                            "Admin",
+                                            FormMethod.Post,
+                                            new { @class = "action-form" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <input type="hidden"
+                                                   name="id"
+                                                   value="@user.UserId" />
+
+                                            if (user.IsActive)
+                                            {
+                                                <button type="submit"
+                                                        class="btn btn-lock"
+                                                        onclick="return confirm('Bạn có chắc muốn khóa tài khoản này?');">
+                                                    Khóa
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <button type="submit"
+                                                        class="btn btn-unlock">
+                                                    Mở khóa
+                                                </button>
+                                            }
+                                        }
+
+                                        <!-- ĐỔI QUYỀN -->
+
+                                        using (Html.BeginForm(
+                                            "ChangeRole",
+                                            "Admin",
+                                            FormMethod.Post,
+                                            new { @class = "action-form" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <input type="hidden"
+                                                   name="id"
+                                                   value="@user.UserId" />
+
+                                            <select name="role"
+                                                    class="role-select">
+
+                                                @if (user.Role == "Customer")
+                                                {
+                                                    <option value="Customer" selected>
+                                                        Customer
+                                                    </option>
+
+                                                    <option value="Admin">
+                                                        Admin
+                                                    </option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="Admin" selected>
+                                                        Admin
+                                                    </option>
+
+                                                    <option value="Customer">
+                                                        Customer
+                                                    </option>
+                                                }
+
+                                            </select>
+
+                                            <button type="submit"
+                                                    class="btn btn-role"
+                                                    onclick="return confirm('Bạn có chắc muốn thay đổi quyền tài khoản này?');">
+                                                Lưu
+                                            </button>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span>
+                                            —
+                                        </span>
+                                    }
+
+                                </td>
+
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="9"
+                                style="text-align:center; padding:30px;">
+                                Chưa có tài khoản nào.
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

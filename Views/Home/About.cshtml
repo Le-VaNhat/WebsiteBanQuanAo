@@ -1,5 +1,6 @@
-﻿@{
+@{
     ViewBag.Title = "Giới thiệu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <style>
@@ -8,17 +9,12 @@
         box-sizing: border-box;
     }
 
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
+    .about-page {
+        min-height: 100vh;
         background: #f7f7f7;
     }
 
-    /* ================= ABOUT HERO ================= */
-
-    .about-page {
-        min-height: 100vh;
-    }
+    /* ================= BANNER ================= */
 
     .about-banner {
         min-height: 420px;
@@ -40,7 +36,6 @@
         justify-content: center;
 
         text-align: center;
-
         color: white;
     }
 
@@ -49,18 +44,18 @@
         padding: 30px;
     }
 
-        .about-banner-content h1 {
-            font-size: 52px;
-            margin-bottom: 20px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+    .about-banner-content h1 {
+        font-size: 52px;
+        margin: 0 0 20px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
 
-        .about-banner-content p {
-            font-size: 19px;
-            line-height: 1.7;
-            margin: 0;
-        }
+    .about-banner-content p {
+        font-size: 19px;
+        line-height: 1.7;
+        margin: 0;
+    }
 
 
     /* ================= CONTENT ================= */
@@ -74,24 +69,24 @@
     .about-intro {
         text-align: center;
         max-width: 850px;
-        margin: auto;
-        margin-bottom: 60px;
+        margin: 0 auto 60px;
     }
 
-        .about-intro h2 {
-            font-size: 34px;
-            margin-bottom: 20px;
-            color: #222;
-        }
+    .about-intro h2 {
+        font-size: 34px;
+        margin-bottom: 20px;
+        color: #222;
+    }
 
-        .about-intro p {
-            font-size: 17px;
-            line-height: 1.8;
-            color: #666;
-        }
+    .about-intro p {
+        font-size: 17px;
+        line-height: 1.8;
+        color: #666;
+        margin-bottom: 18px;
+    }
 
 
-    /* ================= INFO BOX ================= */
+    /* ================= FEATURES ================= */
 
     .about-grid {
         display: grid;
@@ -107,19 +102,17 @@
         text-align: center;
 
         box-shadow:
-            0 4px 18px
-            rgba(0,0,0,.08);
+            0 4px 18px rgba(0,0,0,.08);
 
         transition: .25s;
     }
 
-        .about-card:hover {
-            transform: translateY(-6px);
+    .about-card:hover {
+        transform: translateY(-6px);
 
-            box-shadow:
-                0 10px 28px
-                rgba(0,0,0,.13);
-        }
+        box-shadow:
+            0 10px 28px rgba(0,0,0,.13);
+    }
 
     .about-icon {
         font-size: 45px;
@@ -152,22 +145,22 @@
         border-radius: 10px;
 
         box-shadow:
-            0 4px 20px
-            rgba(0,0,0,.07);
+            0 4px 20px rgba(0,0,0,.07);
     }
 
-        .about-story h2 {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 30px;
-        }
+    .about-story h2 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 30px;
+        color: #222;
+    }
 
-        .about-story p {
-            font-size: 16px;
-            line-height: 1.9;
-            color: #666;
-            margin-bottom: 20px;
-        }
+    .about-story p {
+        font-size: 16px;
+        line-height: 1.9;
+        color: #666;
+        margin-bottom: 20px;
+    }
 
 
     /* ================= CTA ================= */
@@ -186,16 +179,16 @@
         border-radius: 10px;
     }
 
-        .about-action h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
+    .about-action h2 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
 
-        .about-action p {
-            color: #ccc;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
+    .about-action p {
+        color: #ccc;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
 
     .about-button {
         display: inline-block;
@@ -215,11 +208,11 @@
         transition: .2s;
     }
 
-        .about-button:hover {
-            background: #c92532;
-            color: white;
-            text-decoration: none;
-        }
+    .about-button:hover {
+        background: #c92532;
+        color: white;
+        text-decoration: none;
+    }
 
 
     /* ================= RESPONSIVE ================= */
@@ -230,8 +223,16 @@
             grid-template-columns: 1fr;
         }
 
+        .about-banner {
+            min-height: 350px;
+        }
+
         .about-banner-content h1 {
             font-size: 40px;
+        }
+
+        .about-banner-content p {
+            font-size: 16px;
         }
 
         .about-story {
@@ -244,7 +245,6 @@
 
 
 <main class="about-page">
-
 
     <!-- ================= BANNER ================= -->
 
@@ -266,13 +266,11 @@
     </section>
 
 
-
     <!-- ================= CONTENT ================= -->
 
     <section class="about-container">
 
-
-        <!-- INTRO -->
+        <!-- ================= GIỚI THIỆU ================= -->
 
         <div class="about-intro">
 
@@ -296,11 +294,11 @@
         </div>
 
 
-
-        <!-- FEATURES -->
+        <!-- ================= ĐIỂM NỔI BẬT ================= -->
 
         <div class="about-grid">
 
+            <!-- SẢN PHẨSM -->
 
             <div class="about-card">
 
@@ -321,6 +319,7 @@
             </div>
 
 
+            <!-- CHẤT LƯỢNG -->
 
             <div class="about-card">
 
@@ -341,6 +340,7 @@
             </div>
 
 
+            <!-- TIỆN LỢI -->
 
             <div class="about-card">
 
@@ -360,12 +360,10 @@
 
             </div>
 
-
         </div>
 
 
-
-        <!-- STORY -->
+        <!-- ================= CÂU CHUYỆN ================= -->
 
         <div class="about-story">
 
@@ -398,8 +396,7 @@
         </div>
 
 
-
-        <!-- CTA -->
+        <!-- ================= CTA ================= -->
 
         <div class="about-action">
 
@@ -421,8 +418,6 @@
 
         </div>
 
-
     </section>
-
 
 </main>

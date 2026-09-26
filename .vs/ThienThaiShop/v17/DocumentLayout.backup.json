@@ -3,51 +3,219 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\services\\chataiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:services\\chataiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\models\\thienthaidbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\models\\chatviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\chatviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\products.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\products.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\editproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\editproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\controllers\\adminreportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:controllers\\adminreportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\adminreport\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\adminreport\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\models\\adminsalesreportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\adminsalesreportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ProductSize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:Models\\ProductSize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\product\\bestseller.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\product\\bestseller.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\models\\size.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\size.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\order\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\order\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\checkout\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\checkout\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\sizes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\sizes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\orderdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\orderdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\manageproductsizes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\manageproductsizes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\editsize.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\editsize.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\editcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\editcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\createsize.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\createsize.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\createproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\createproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\createcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\createcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\contacts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\contacts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\contactdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\contactdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\admin\\categories.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\admin\\categories.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\migrations\\202609060939120_updatecontactanddatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:migrations\\202609060939120_updatecontactanddatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\models\\contactmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\contactmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\models\\thienthaidbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\thienthaidbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -55,52 +223,24 @@
       "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:Models\\Order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\models\\size.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\size.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|c:\\users\\asus\\source\\repos\\thienthaishop\\views\\product\\bestseller.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:views\\product\\bestseller.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ProductSize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:Models\\ProductSize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E3C22A9-C897-472C-AEFC-A7C8F93EFE48}|ThienThaiShop.csproj|solutionrelative:Models\\Category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -110,278 +250,258 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Cart\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Cart\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Cart\\Index.cshtml",
-              "RelativeToolTip": "Views\\Cart\\Index.cshtml",
-              "ViewState": "AgIAALMCAAAAAAAAAAAAALMCAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-18T10:22:14.561Z",
+              "DocumentIndex": 1,
+              "Title": "ChatController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\ChatController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ChatController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\ChatController.cs",
+              "RelativeToolTip": "Controllers\\ChatController.cs",
+              "ViewState": "AgIAAMIKAAAAAAAAAAAcwPcKAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-17T09:28:02.982Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChatAiService.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Services\\ChatAiService.cs",
+              "RelativeDocumentMoniker": "Services\\ChatAiService.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Services\\ChatAiService.cs",
+              "RelativeToolTip": "Services\\ChatAiService.cs",
+              "ViewState": "AgIAALwCAAAAAAAAAAAcwPECAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-17T10:01:30.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Profile.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Account\\Profile.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Profile.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Account\\Profile.cshtml",
-              "RelativeToolTip": "Views\\Account\\Profile.cshtml",
-              "ViewState": "AgIAAKkAAAAAAAAAAADwv8EAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-18T10:03:20.343Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAMkFAAAAAAAAAAAuwNkFAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-18T08:14:49.826Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAJkAAAAAAAAAAADwv7EAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-18T09:59:01.194Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
               "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Account\\Register.cshtml",
               "RelativeToolTip": "Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAALQAAAAAAAAAAADwv8wAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAOsAAAAAAAAAAAAAABgBAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-08-18T09:59:26.434Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CheckoutController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\CheckoutController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CheckoutController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\CheckoutController.cs",
+              "RelativeToolTip": "Controllers\\CheckoutController.cs",
+              "ViewState": "AgIAAGQCAAAAAAAAAAAcwIACAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-30T02:52:33.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAPUAAAAAAAAAAAAQwAsBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T09:58:00.755Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ApplicationUser.cs",
-              "RelativeToolTip": "Models\\ApplicationUser.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAwwCMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T09:49:52.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "Controllers\\CartController.cs",
               "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\CartController.cs",
               "RelativeToolTip": "Controllers\\CartController.cs",
-              "ViewState": "AgIAAB4BAAAAAAAAAAAQwDQBAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABsBAAAAAAAAAAAwwDIBAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-18T08:57:09.625Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CartItem.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\CartItem.cs",
-              "RelativeDocumentMoniker": "Models\\CartItem.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\CartItem.cs",
-              "RelativeToolTip": "Models\\CartItem.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAA/wBkAAAABAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "ChatViewModels.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ChatViewModels.cs",
+              "RelativeDocumentMoniker": "Models\\ChatViewModels.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ChatViewModels.cs",
+              "RelativeToolTip": "Models\\ChatViewModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T09:48:46.683Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Cart.cs",
-              "RelativeDocumentMoniker": "Models\\Cart.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Cart.cs",
-              "RelativeToolTip": "Models\\Cart.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvxMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T09:48:38.614Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Contact.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\Contact.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\Contact.cshtml",
-              "RelativeToolTip": "Views\\Home\\Contact.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-18T09:33:08.498Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "About.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\About.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\About.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\About.cshtml",
-              "RelativeToolTip": "Views\\Home\\About.cshtml",
-              "ViewState": "AgIAABQAAAAAAAAAAAAgwCAAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-18T09:32:44.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-17T09:06:19.689Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "ThienThaiDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ThienThaiDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\ThienThaiDbContext.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ThienThaiDbContext.cs",
-              "RelativeToolTip": "Models\\ThienThaiDbContext.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAqwFgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T09:05:35.98Z",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAGMEAAAAAAAAAAAiwJUEAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-30T03:23:51.225Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAALEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-18T09:59:01.194Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 6,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMgAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-09-09T07:39:47.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\ProductController.cs",
               "RelativeToolTip": "Controllers\\ProductController.cs",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAmwJ8AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAFgBAAAAAAAAAAAcwIYBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T09:02:35.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-18T09:02:35.17Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Size.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Size.cs",
-              "RelativeDocumentMoniker": "Models\\Size.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Size.cs",
-              "RelativeToolTip": "Models\\Size.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AgIAAHMHAAAAAAAAAAAmwI4HAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T09:05:14.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "Models\\Order.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Order.cs",
-              "RelativeToolTip": "Models\\Order.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAwwCcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-15T16:22:01.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-06T07:55:35.375Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "OrderDetail.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\OrderDetail.cs",
-              "RelativeDocumentMoniker": "Models\\OrderDetail.cs",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\OrderDetail.cs",
-              "RelativeToolTip": "Models\\OrderDetail.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA/wBsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-15T16:22:15.573Z",
-              "EditorCaption": ""
+              "Title": "Products.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Products.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Products.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Products.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Products.cshtml",
+              "ViewState": "AgIAALECAAAAAAAAAAAiwOMCAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:07:40.385Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 12,
+              "Title": "EditProduct.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\EditProduct.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\EditProduct.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\EditProduct.cshtml",
+              "RelativeToolTip": "Views\\Admin\\EditProduct.cshtml",
+              "ViewState": "AgIAAKQBAAAAAAAAAAAiwMkBAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:08:45.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AdminReportController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\AdminReportController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminReportController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\AdminReportController.cs",
+              "RelativeToolTip": "Controllers\\AdminReportController.cs",
+              "ViewState": "AgIAAKkDAAAAAAAAAAAAANgDAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-12T09:53:52.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Product\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\Product\\Details.cshtml",
               "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Product\\Details.cshtml",
               "RelativeToolTip": "Views\\Product\\Details.cshtml",
-              "ViewState": "AgIAAPYDAAAAAAAAAAAuwAsEAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIoDAAAAAAAAAAAiwLwDAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-18T08:45:17.458Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-18T08:45:17.458Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "BestSeller.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Product\\BestSeller.cshtml",
-              "RelativeDocumentMoniker": "Views\\Product\\BestSeller.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Product\\BestSeller.cshtml",
-              "RelativeToolTip": "Views\\Product\\BestSeller.cshtml",
-              "ViewState": "AgIAAJgBAAAAAAAAAAAuwLgBAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-18T08:44:36.921Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Product\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Product\\Index.cshtml",
               "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Product\\Index.cshtml",
               "RelativeToolTip": "Views\\Product\\Index.cshtml",
-              "ViewState": "AgIAADwEAAAAAAAAAAAgwFYEAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAB8DAAAAAAAAAAAiwFEDAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-18T08:17:56.899Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-18T08:17:56.899Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "SQLQuery1.sql ",
-              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\SQLQuery1.sql",
-              "RelativeDocumentMoniker": "SQLQuery1.sql",
-              "ToolTip": "SQLQuery1.sql ",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-08-18T08:06:46.606Z",
-              "EditorCaption": ""
+              "DocumentIndex": 16,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\AdminReport\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\AdminReport\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\AdminReport\\Index.cshtml",
+              "RelativeToolTip": "Views\\AdminReport\\Index.cshtml",
+              "ViewState": "AgIAALAFAAAAAAAAAAAiwOIFAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-12T09:23:55.142Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAGIBAAAAAAAAAAAiwI4BAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T07:49:40.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T09:58:00.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AdminSalesReportViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\AdminSalesReportViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\AdminSalesReportViewModel.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\AdminSalesReportViewModel.cs",
+              "RelativeToolTip": "Models\\AdminSalesReportViewModel.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAQwFkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-12T09:22:42.35Z"
             },
             {
               "$type": "Document",
@@ -397,7 +517,462 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Models\\Product.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Product.cs",
+              "RelativeToolTip": "Models\\Product.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAgwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T07:46:59.813Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 22,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAPACAAAAAAAAAAAYwBgDAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-18T08:14:49.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "BestSeller.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Product\\BestSeller.cshtml",
+              "RelativeDocumentMoniker": "Views\\Product\\BestSeller.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Product\\BestSeller.cshtml",
+              "RelativeToolTip": "Views\\Product\\BestSeller.cshtml",
+              "ViewState": "AgIAAIYBAAAAAAAAAAAAADkBAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-18T08:44:36.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Size.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Size.cs",
+              "RelativeDocumentMoniker": "Models\\Size.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Size.cs",
+              "RelativeToolTip": "Models\\Size.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T09:05:14.419Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Checkout\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Checkout\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Checkout\\Index.cshtml",
+              "RelativeToolTip": "Views\\Checkout\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIsBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-30T02:53:19.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Cart\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "Views\\Cart\\Index.cshtml",
+              "ViewState": "AgIAABMCAAAAAAAAAAAAADECAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-18T10:22:14.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAAJQBAAAAAAAAAAAYwK0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-18T09:33:08.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Order\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Order\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Order\\Index.cshtml",
+              "RelativeToolTip": "Views\\Order\\Index.cshtml",
+              "ViewState": "AgIAAGIBAAAAAAAAAAAQwI4BAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-30T03:11:04.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Order\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Order\\Details.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Order\\Details.cshtml",
+              "RelativeToolTip": "Views\\Order\\Details.cshtml",
+              "ViewState": "AgIAAPMBAAAAAAAAAAAQwB8CAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-30T03:11:17.027Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Checkout.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Order\\Checkout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Order\\Checkout.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Order\\Checkout.cshtml",
+              "RelativeToolTip": "Views\\Order\\Checkout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-30T02:29:50.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "Views\\Home\\About.cshtml",
+              "ViewState": "AgIAABQBAAAAAAAAAAAAACwBAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-18T09:32:44.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Success.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Checkout\\Success.cshtml",
+              "RelativeDocumentMoniker": "Views\\Checkout\\Success.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Checkout\\Success.cshtml",
+              "RelativeToolTip": "Views\\Checkout\\Success.cshtml",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAQwMkAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-30T02:53:33.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Users.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Users.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Users.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Users.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Users.cshtml",
+              "ViewState": "AgIAAGABAAAAAAAAAAAQwIwBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:05:08.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Sizes.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Sizes.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Sizes.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Sizes.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Sizes.cshtml",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAQwMYAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:13:07.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Orders.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Orders.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Orders.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Orders.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Orders.cshtml",
+              "ViewState": "AgIAANAAAAAAAAAAAAAQwPwAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:23:29.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "OrderDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\OrderDetails.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\OrderDetails.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\OrderDetails.cshtml",
+              "RelativeToolTip": "Views\\Admin\\OrderDetails.cshtml",
+              "ViewState": "AgIAAO4AAAAAAAAAAAAQwBoBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:24:06.779Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ManageProductSizes.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\ManageProductSizes.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\ManageProductSizes.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\ManageProductSizes.cshtml",
+              "RelativeToolTip": "Views\\Admin\\ManageProductSizes.cshtml",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAQwEkBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:16:42.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "EditSize.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\EditSize.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\EditSize.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\EditSize.cshtml",
+              "RelativeToolTip": "Views\\Admin\\EditSize.cshtml",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAQwGUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:13:53.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "EditCategory.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\EditCategory.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\EditCategory.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\EditCategory.cshtml",
+              "RelativeToolTip": "Views\\Admin\\EditCategory.cshtml",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAQwFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:11:29.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "CreateSize.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\CreateSize.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\CreateSize.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\CreateSize.cshtml",
+              "RelativeToolTip": "Views\\Admin\\CreateSize.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAQwGIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:13:32.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "CreateProduct.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\CreateProduct.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\CreateProduct.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\CreateProduct.cshtml",
+              "RelativeToolTip": "Views\\Admin\\CreateProduct.cshtml",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAQwPEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:08:22.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "CreateCategory.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\CreateCategory.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\CreateCategory.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\CreateCategory.cshtml",
+              "RelativeToolTip": "Views\\Admin\\CreateCategory.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAFoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:11:01.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Contacts.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Contacts.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Contacts.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Contacts.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Contacts.cshtml",
+              "ViewState": "AgIAAGIBAAAAAAAAAAAQwI4BAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T09:16:06.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "ContactDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\ContactDetails.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\ContactDetails.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\ContactDetails.cshtml",
+              "RelativeToolTip": "Views\\Admin\\ContactDetails.cshtml",
+              "ViewState": "AgIAALAAAAAAAAAAAAAQwNwAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T09:17:11.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Categories.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Categories.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Categories.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Admin\\Categories.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Categories.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T08:10:41.305Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Account\\Profile.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Account\\Profile.cshtml",
+              "RelativeToolTip": "Views\\Account\\Profile.cshtml",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAQwMEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-18T10:03:20.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-30T02:28:36.951Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Web.config",
+              "RelativeDocumentMoniker": "Views\\Web.config",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Views\\Web.config",
+              "RelativeToolTip": "Views\\Web.config",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAkwEwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-09-06T10:06:27.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "202609060939120_UpdateContactAndDatabase.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Migrations\\202609060939120_UpdateContactAndDatabase.cs",
+              "RelativeDocumentMoniker": "Migrations\\202609060939120_UpdateContactAndDatabase.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Migrations\\202609060939120_UpdateContactAndDatabase.cs",
+              "RelativeToolTip": "Migrations\\202609060939120_UpdateContactAndDatabase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T09:39:20.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "ThienThaiDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ThienThaiDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\ThienThaiDbContext.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ThienThaiDbContext.cs",
+              "RelativeToolTip": "Models\\ThienThaiDbContext.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAYwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T09:05:35.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "ContactMessage.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ContactMessage.cs",
+              "RelativeDocumentMoniker": "Models\\ContactMessage.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ContactMessage.cs",
+              "RelativeToolTip": "Models\\ContactMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T09:13:12.021Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T09:18:48.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "Models\\Order.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Order.cs",
+              "RelativeToolTip": "Models\\Order.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAxwCcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-15T16:22:01.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "Models\\OrderDetail.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\OrderDetail.cs",
+              "RelativeToolTip": "Models\\OrderDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-15T16:22:15.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAQwBIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T09:49:52.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\CartItem.cs",
+              "RelativeDocumentMoniker": "Models\\CartItem.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\CartItem.cs",
+              "RelativeToolTip": "Models\\CartItem.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA/wBkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T09:48:46.683Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Cart.cs",
+              "RelativeDocumentMoniker": "Models\\Cart.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Cart.cs",
+              "RelativeToolTip": "Models\\Cart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T09:48:38.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "SQLQuery1.sql",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\SQLQuery1.sql",
+              "RelativeDocumentMoniker": "SQLQuery1.sql",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\SQLQuery1.sql",
+              "RelativeToolTip": "SQLQuery1.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-08-18T08:06:46.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\ThienThaiShop\\Models\\Category.cs",
               "RelativeDocumentMoniker": "Models\\Category.cs",

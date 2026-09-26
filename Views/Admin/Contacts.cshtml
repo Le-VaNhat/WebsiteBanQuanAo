@@ -1,0 +1,399 @@
+@model IEnumerable<ThienThaiShop.Models.ContactMessage>
+
+@{
+    ViewBag.Title = "Quản lý liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string selectedStatus = ViewBag.SelectedStatus as string;
+}
+
+<style>
+    .admin-page {
+        padding: 40px 0;
+        background: #f5f5f5;
+        min-height: 80vh;
+    }
+
+    .admin-box {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 3px 12px rgba(0,0,0,.08);
+    }
+
+    .admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        gap: 15px;
+    }
+
+        .admin-header h2 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+    .header-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn {
+        border: none;
+        padding: 9px 15px;
+        border-radius: 6px;
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        margin: 2px;
+        font-size: 14px;
+    }
+
+        .btn:hover {
+            text-decoration: none;
+            opacity: .9;
+        }
+
+    .btn-black {
+        background: #222;
+        color: white;
+    }
+
+    .btn-blue {
+        background: #337ab7;
+        color: white;
+    }
+
+    .btn-green {
+        background: #5cb85c;
+        color: white;
+    }
+
+    .btn-red {
+        background: #d9534f;
+        color: white;
+    }
+
+    .btn-gray {
+        background: #777;
+        color: white;
+    }
+
+    .filter-box {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+    }
+
+        .filter-box a {
+            padding: 9px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            background: #eee;
+            color: #333;
+        }
+
+            .filter-box a.active {
+                background: #222;
+                color: white;
+            }
+
+    .alert {
+        padding: 12px 15px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    .alert-success {
+        background: #dff0d8;
+        color: #3c763d;
+    }
+
+    .alert-danger {
+        background: #f2dede;
+        color: #a94442;
+    }
+
+    .contact-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .contact-table th,
+        .contact-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+
+        .contact-table th {
+            background: #f8f8f8;
+            font-weight: 700;
+        }
+
+        .contact-table tr.unread {
+            background: #fffbea;
+        }
+
+    .message-preview {
+        max-width: 350px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .badge-unread {
+        background: #f2dede;
+        color: #a94442;
+    }
+
+    .badge-read {
+        background: #dff0d8;
+        color: #3c763d;
+    }
+
+    .action-form {
+        display: inline-block;
+    }
+
+    .action-buttons {
+        white-space: nowrap;
+    }
+
+    @@media (max-width: 1000px) {
+        .admin-box {
+            overflow-x: auto;
+        }
+
+        .contact-table {
+            min-width: 1050px;
+        }
+    }
+
+    @@media (max-width: 600px) {
+        .admin-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+</style>
+
+<div class="admin-page">
+
+    <div class="container">
+
+        <div class="admin-box">
+
+            <div class="admin-header">
+
+                <h2>
+                    📩 Quản lý liên hệ
+                </h2>
+
+                <div class="header-buttons">
+
+                    <a href="@Url.Action("Index", "Admin")"
+                       class="btn btn-black">
+                        ← Dashboard
+                    </a>
+
+                </div>
+
+            </div>
+
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["Success"]
+                </div>
+            }
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["Error"]
+                </div>
+            }
+
+            <!-- BỘ LỌC -->
+
+            <div class="filter-box">
+
+                <a href="@Url.Action("Contacts", "Admin")"
+                   class="@(string.IsNullOrEmpty(selectedStatus) ? "active" : "")">
+                    Tất cả
+                </a>
+
+                <a href="@Url.Action("Contacts", "Admin", new { status = "Unread" })"
+                   class="@(selectedStatus == "Unread" ? "active" : "")">
+                    Chưa đọc
+                </a>
+
+                <a href="@Url.Action("Contacts", "Admin", new { status = "Read" })"
+                   class="@(selectedStatus == "Read" ? "active" : "")">
+                    Đã đọc
+                </a>
+
+            </div>
+
+            <!-- DANH SÁCH -->
+
+            <table class="contact-table">
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Họ tên</th>
+                        <th>Email</th>
+                        <th>Nội dung</th>
+                        <th>Ngày gửi</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var contact in Model)
+                        {
+                            <tr class="@(!contact.IsRead ? "unread" : "")">
+
+                                <td>
+                                    @contact.ContactMessageId
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        @contact.FullName
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    @contact.Email
+                                </td>
+
+                                <td>
+
+                                    <div class="message-preview"
+                                         title="@contact.Message">
+
+                                        @contact.Message
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    @contact.CreatedAt.ToString("dd/MM/yyyy HH:mm")
+                                </td>
+
+                                <td>
+
+                                    @if (contact.IsRead)
+                                    {
+                                        <span class="badge badge-read">
+                                            ✓ Đã đọc
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-unread">
+                                            ● Chưa đọc
+                                        </span>
+                                    }
+
+                                </td>
+
+                                <td class="action-buttons">
+
+                                    <a href="@Url.Action(
+                                        "ContactDetails",
+                                        "Admin",
+                                        new { id = contact.ContactMessageId })"
+                                       class="btn btn-blue">
+                                        Xem
+                                    </a>
+
+                                    @using (Html.BeginForm(
+                                        "ToggleContactRead",
+                                        "Admin",
+                                        FormMethod.Post,
+                                        new { @class = "action-form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <input type="hidden"
+                                               name="id"
+                                               value="@contact.ContactMessageId" />
+
+                                        <button type="submit"
+                                                class="btn btn-gray">
+
+                                            @(contact.IsRead
+                                                ? "Chưa đọc"
+                                                : "Đã đọc")
+
+                                        </button>
+                                    }
+
+                                    @using (Html.BeginForm(
+                                        "DeleteContact",
+                                        "Admin",
+                                        FormMethod.Post,
+                                        new { @class = "action-form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <input type="hidden"
+                                               name="id"
+                                               value="@contact.ContactMessageId" />
+
+                                        <button type="submit"
+                                                class="btn btn-red"
+                                                onclick="return confirm('Bạn có chắc muốn xóa tin nhắn này?');">
+                                            Xóa
+                                        </button>
+                                    }
+
+                                </td>
+
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+
+                            <td colspan="7"
+                                style="text-align:center; padding:40px; color:#777;">
+
+                                📭 Chưa có tin nhắn liên hệ.
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

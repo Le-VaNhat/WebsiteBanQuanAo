@@ -1,4 +1,6 @@
-﻿@{
+@model ThienThaiShop.Models.ContactMessage
+
+@{
     ViewBag.Title = "Liên hệ - Thiên Thai Shop";
 }
 
@@ -46,7 +48,6 @@
         margin: 0;
     }
 
-
     /* ================= CONTENT ================= */
 
     .contact-container {
@@ -66,7 +67,6 @@
         grid-template-columns: 1fr 1fr;
         gap: 50px;
     }
-
 
     /* ================= INFO ================= */
 
@@ -121,7 +121,6 @@
         color: #e63946;
     }
 
-
     /* ================= FORM ================= */
 
     .contact-form h2 {
@@ -150,6 +149,7 @@
 
         font-size: 15px;
         outline: none;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     .form-group input:focus,
@@ -180,6 +180,32 @@
         background: #c92532;
     }
 
+    /* ================= MESSAGE ================= */
+
+    .contact-success {
+        margin-bottom: 20px;
+        padding: 14px 16px;
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        border-radius: 5px;
+    }
+
+    .contact-error {
+        margin-bottom: 20px;
+        padding: 14px 16px;
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+    }
+
+    .field-error {
+        display: block;
+        margin-top: 5px;
+        color: #e63946;
+        font-size: 13px;
+    }
 
     /* ================= RESPONSIVE ================= */
 
@@ -199,7 +225,6 @@
 
 </style>
 
-
 <!-- ================= BANNER ================= -->
 
 <section class="contact-banner">
@@ -216,15 +241,13 @@
 
 </section>
 
-
 <!-- ================= CONTACT ================= -->
 
 <main class="contact-container">
 
     <div class="contact-box">
 
-
-        <!-- THÔNG TIN -->
+        <!-- ================= THÔNG TIN ================= -->
 
         <div class="contact-info">
 
@@ -236,7 +259,6 @@
                 Thiên Thai Shop. Chúng tôi sẽ cố gắng phản hồi
                 bạn trong thời gian sớm nhất.
             </p>
-
 
             <div class="contact-item">
 
@@ -256,11 +278,10 @@
 
             </div>
 
-
             <div class="contact-item">
 
                 <div class="contact-icon">
-                    ☎
+                    📞
                 </div>
 
                 <div class="contact-detail">
@@ -274,7 +295,6 @@
                 </div>
 
             </div>
-
 
             <div class="contact-item">
 
@@ -296,43 +316,119 @@
 
         </div>
 
-
-        <!-- FORM -->
+        <!-- ================= FORM ================= -->
 
         <div class="contact-form">
 
             <h2>Gửi tin nhắn</h2>
 
-            <form>
+            <!-- THÔNG BÁO GỬI THÀNH CÔNG -->
+
+            @if (TempData["ContactSuccess"] != null)
+            {
+                <div class="contact-success">
+                    @TempData["ContactSuccess"]
+                </div>
+            }
+
+            <!-- FORM GỬI LIÊN HỆ -->
+
+            @using (Html.BeginForm(
+                "Send",
+                "Contact",
+                FormMethod.Post,
+                new { @class = "contact-form-submit" }
+            ))
+            {
+                @Html.AntiForgeryToken()
+
+                <!-- THÔNG BÁO LỖI -->
+
+                @Html.ValidationSummary(
+                    true,
+                    "",
+                    new { @class = "contact-error" }
+                )
+
+                <!-- HỌ TÊN -->
 
                 <div class="form-group">
 
-                    <label>Họ và tên</label>
+                    <label for="FullName">
+                        Họ và tên
+                    </label>
 
-                    <input type="text"
-                           placeholder="Nhập họ và tên">
+                    @Html.TextBoxFor(
+                        m => m.FullName,
+                        new
+                        {
+                            id = "FullName",
+                            placeholder = "Nhập họ và tên",
+                            autocomplete = "name"
+                        }
+                    )
+
+                    @Html.ValidationMessageFor(
+                        m => m.FullName,
+                        "",
+                        new { @class = "field-error" }
+                    )
 
                 </div>
 
+                <!-- EMAIL -->
 
                 <div class="form-group">
 
-                    <label>Email</label>
+                    <label for="Email">
+                        Email
+                    </label>
 
-                    <input type="email"
-                           placeholder="Nhập email">
+                    @Html.TextBoxFor(
+                        m => m.Email,
+                        new
+                        {
+                            id = "Email",
+                            type = "email",
+                            placeholder = "Nhập email",
+                            autocomplete = "email"
+                        }
+                    )
+
+                    @Html.ValidationMessageFor(
+                        m => m.Email,
+                        "",
+                        new { @class = "field-error" }
+                    )
 
                 </div>
 
+                <!-- NỘI DUNG -->
 
                 <div class="form-group">
 
-                    <label>Nội dung</label>
+                    <label for="Message">
+                        Nội dung
+                    </label>
 
-                    <textarea placeholder="Nhập nội dung bạn muốn gửi"></textarea>
+                    @Html.TextAreaFor(
+                        m => m.Message,
+                        new
+                        {
+                            id = "Message",
+                            placeholder = "Nhập nội dung bạn muốn gửi"
+                        }
+                    )
+
+                    @Html.ValidationMessageFor(
+                        m => m.Message,
+                        "",
+                        new { @class = "field-error" }
+                    )
 
                 </div>
 
+                <!-- NÚT GỬI -->
 
                 <button type="submit"
                         class="contact-button">
@@ -340,11 +436,9 @@
                     GỬI LIÊN HỆ
 
                 </button>
-
-            </form>
+            }
 
         </div>
-
 
     </div>
 

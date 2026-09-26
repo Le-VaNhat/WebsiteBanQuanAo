@@ -1,0 +1,174 @@
+﻿@model IEnumerable<ThienThaiShop.Models.Category>
+
+@{
+    ViewBag.Title = "Quản lý danh mục";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold">Quản lý danh mục</h2>
+            <p class="text-muted mb-0">
+                Quản lý các danh mục sản phẩm của cửa hàng
+            </p>
+        </div>
+
+        <a href="@Url.Action("CreateCategory", "Admin")"
+           class="btn btn-dark">
+            + Thêm danh mục
+        </a>
+    </div>
+
+
+    <!-- THÔNG BÁO -->
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            @TempData["Success"]
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert">
+            </button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show">
+            @TempData["Error"]
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert">
+            </button>
+        </div>
+    }
+
+
+    <!-- DANH SÁCH -->
+    <div class="card shadow-sm border-0">
+
+        <div class="card-header bg-dark text-white">
+            <strong>Danh sách danh mục</strong>
+        </div>
+
+        <div class="card-body p-0">
+
+            @if (Model != null && Model.Any())
+            {
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle mb-0">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width:100px;">
+                                    ID
+                                </th>
+
+                                <th>
+                                    Tên danh mục
+                                </th>
+
+                                <th style="width:250px;"
+                                    class="text-center">
+                                    Thao tác
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var category in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @category.CategoryId
+                                    </td>
+
+                                    <td>
+                                        <strong>
+                                            @category.Name
+                                        </strong>
+                                    </td>
+
+                                    <td class="text-center">
+
+                                        <a href="@Url.Action(
+                                            "EditCategory",
+                                            "Admin",
+                                            new { id = category.CategoryId })"
+                                           class="btn btn-sm btn-outline-primary me-2">
+                                            Sửa
+                                        </a>
+
+
+                                        <form action="@Url.Action(
+                                            "DeleteCategory",
+                                            "Admin")"
+                                              method="post"
+                                              style="display:inline;"
+                                              onsubmit="return confirm(
+                                                  'Bạn có chắc muốn xóa danh mục này?'
+                                              );">
+
+                                            @Html.AntiForgeryToken()
+
+                                            <input type="hidden"
+                                                   name="id"
+                                                   value="@category.CategoryId" />
+
+                                            <button type="submit"
+                                                    class="btn btn-sm btn-outline-danger">
+                                                Xóa
+                                            </button>
+
+                                        </form>
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            }
+            else
+            {
+                <div class="text-center p-5">
+
+                    <h5 class="text-muted">
+                        Chưa có danh mục nào
+                    </h5>
+
+                    <a href="@Url.Action(
+                        "CreateCategory",
+                        "Admin")"
+                       class="btn btn-dark mt-3">
+                        + Thêm danh mục đầu tiên
+                    </a>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+
+    <!-- QUAY LẠI -->
+    <div class="mt-4">
+
+        <a href="@Url.Action("Index", "Admin")"
+           class="btn btn-outline-secondary">
+            ← Quay lại Dashboard
+        </a>
+
+    </div>
+
+</div>
